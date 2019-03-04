@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="有幸遇见">
+    
+    
+    
+    
+    
+    
+    <title>gulp的简单使用 | Hexo</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: 'Loading';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head></html>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">Open Lyrics</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">Top</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">Once you つ Now I</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">Once you つ Now I</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">gulp的简单使用</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2016-08-05
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h1 id="gulp"><a href="#gulp" class="headerlink" title="gulp"></a>gulp</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">多个开发者共同开发一个项目，每位开发者负责不同的模块，</span><br><span class="line">这就会造成一个完整的项目实际上是由许多的“代码版段”组成的；</span><br><span class="line"></span><br><span class="line">使用less、sass等一些预处理程序，降低CSS的维护成本，最终需要将这些预处理程序进行解析；</span><br><span class="line"></span><br><span class="line">合并css、javascript，压缩html、css、javascript、images可以加速网页打开速度，提升性能；</span><br><span class="line">这一系列的任务完全靠手动完成几乎是不可能的，借助构建工具可以轻松实现。</span><br><span class="line">所谓构建工具是指通过简单配置就可以帮我们实现合并、压缩、校验、预处理等一系列任务的软件工具。</span><br><span class="line">常见的构建工具包括：Grunt、Gulp、F.I.S（百度出品）、webpack</span><br></pre></td></tr></table></figure>
+<h2 id="1-gulp简介"><a href="#1-gulp简介" class="headerlink" title="1. gulp简介"></a>1. gulp简介</h2><ul>
+<li>gulp这个软件是用nodejs写的.</li>
+<li>gulp是基于流的自动化构建工具</li>
+<li>网站开发完成之后,我们要做项目构建,完成之后才可以上线.</li>
+<li>项目构建:<ul>
+<li>代码压缩.html css js</li>
+<li>代码混淆</li>
+<li>文件合并</li>
+<li>等其它自动化工作. sass转换为css.</li>
+</ul>
+</li>
+<li>这就是gulp做的事情.</li>
+</ul>
+<h2 id="2-gulp安装"><a href="#2-gulp安装" class="headerlink" title="2. gulp安装"></a>2. gulp安装</h2><ul>
+<li><p>首先需要全局安装gulp,如果之前已经全局安装过,可以省略这步.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp -g </span><br><span class="line">global 全局安装. 会把该软件安装到系统目录中.</span><br><span class="line">我们使用npm下载插件,实际上是从https://www.npmjs.com/下载.</span><br><span class="line">全局安装的插件 可以在任意的地方使用.</span><br><span class="line">本地安装的插件 只能在当前项目中使用.</span><br><span class="line">使用gulp -v命令查看安装的gulp版本 如果可以看到就说明安装成功.</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>还需要本地安装,在项目目录中.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install gulp --save</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="3-gulp使用"><a href="#3-gulp使用" class="headerlink" title="3. gulp使用"></a>3. gulp使用</h2><ul>
+<li>在项目目录中新建1个<code>gulpfile.js</code>文件.</li>
+<li>在这个文件中写上构建代码.</li>
+<li>先引入本地的<code>gulp</code>模块<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</span><br><span class="line"><span class="comment">//这个gulp对象就可以配合插件来进行构建工作.</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="3-1-创建任务"><a href="#3-1-创建任务" class="headerlink" title="3.1 创建任务"></a>3.1 创建任务</h3><ul>
+<li>gulp是以任务的形式来执行每一项构建化工作.</li>
+<li><p>调用gulp对象的task方法可以创建任务<br>  参数1: 任务名称<br>  参数2: 回调函数,执行该任务的时候,要做的事情.</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"testTask"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    <span class="built_in">console</span>.log();</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个时候,我们就创建了1个任务<code>testTask</code>,该任务做的事情就是回调函数的事情.</p>
+</li>
+</ul>
+<h3 id="3-2-执行任务"><a href="#3-2-执行任务" class="headerlink" title="3.2 执行任务"></a>3.2 执行任务</h3><ul>
+<li>如何执行这个gulp任务呢?</li>
+<li>打开cmd工具,切换工作路径到项目目录</li>
+<li><p>在命令行窗口中使用<code>gulp 任务名称</code>就可以执行指定的任务.</p>
+  <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">gulp testTask</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>这个时候,名叫<code>testTask</code>的任务就会被执行.</p>
+</li>
+</ul>
+<h2 id="4-压缩CSS-gulp-cssmin"><a href="#4-压缩CSS-gulp-cssmin" class="headerlink" title="4.压缩CSS gulp-cssmin"></a>4.压缩CSS <code>gulp-cssmin</code></h2><ul>
+<li>需要创建1个压缩css的任务.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> cssmin = <span class="built_in">require</span>(<span class="string">"gulp-cssmin"</span>);</span><br><span class="line">gulp.task(<span class="string">"yscss"</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//1.这个任务是用来压缩css的.</span></span><br><span class="line">    <span class="comment">//  那么首先你需要指定需要压缩的css文件</span></span><br><span class="line">    <span class="comment">//  调用gulp对象的src方法,指定要处理的文件的路径.</span></span><br><span class="line">    gulp.src(<span class="string">"./src/assets/css/reset.css"</span>)</span><br><span class="line">        .pipe(cssmin())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">"./dist/assets/css"</span>));</span><br><span class="line">    <span class="comment">//2.pipe()管道理解 阀门形象理解.</span></span><br><span class="line">    <span class="comment">//3.管道中每一个阀门做不同的事情.不同的事情需要插件来完成.</span></span><br><span class="line">    <span class="comment">//  压缩css的插件. gulp-cssmin</span></span><br><span class="line">    <span class="comment">//  安装插件,引入gulp-cssmin</span></span><br><span class="line">    <span class="comment">//  引入后,其实1个函数.</span></span><br><span class="line">    <span class="comment">//  将其在管道中调用,相当于在管道中设置了1个阀门.</span></span><br><span class="line">    <span class="comment">//4.管道最后1关,要调用gulp对象的dest方法,设置存放处理后的路径.</span></span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="5-文件监视-watch"><a href="#5-文件监视-watch" class="headerlink" title="5.文件监视 watch"></a>5.文件监视 <code>watch</code></h2><ul>
+<li>gulp对象提供了一个watch方法</li>
+<li>该方法的作用,监视指定文件的变化,</li>
+<li><p>一旦改动,就执行指定的任务</p>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"watchCss"</span>,<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//监视指定的css文件.可以使用通配符,一旦文件发送变化,就自动执行yscss任务</span></span><br><span class="line">    gulp.watch(<span class="string">"./src/assets/css/reset.css"</span>,[<span class="string">"yscss"</span>]);</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>watch方法的第2个参数,还可以是1个回调.当文件发生变化以后,就执行这个回调.</p>
+</li>
+</ul>
+<h2 id="5-gulp-uglify-压缩js"><a href="#5-gulp-uglify-压缩js" class="headerlink" title="5.gulp-uglify 压缩js"></a>5.gulp-uglify 压缩js</h2><ul>
+<li>压缩混淆js代码,需要<code>gulp-uglify</code>插件支持.使用npm安装该插件.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.引入gulp模块</span></span><br><span class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">"gulp"</span>);</span><br><span class="line"><span class="comment">//2.引入gulp-uglify模块.返回的是1个函数.</span></span><br><span class="line"><span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">"gulp-uglify"</span>);</span><br><span class="line"><span class="comment">//3.新建任务</span></span><br><span class="line">gulp.task(<span class="string">"ysjs"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.src(<span class="string">"./js/app.js"</span>)</span><br><span class="line">        .pipe(uglify())</span><br><span class="line">        .pipe(gulp.dest(<span class="string">"./dist/js"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="6-gulp-concat-合并文件"><a href="#6-gulp-concat-合并文件" class="headerlink" title="6.gulp-concat 合并文件"></a>6.gulp-concat 合并文件</h2><ul>
+<li>文件合并需要使用到 <code>gulp-concat</code>插件支持.使用npm安装该插件.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"concatFile"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.src([<span class="string">"./src/js/app.js"</span>,<span class="string">"./src/js/demo.js"</span>])</span><br><span class="line">    .pipe(concat(<span class="string">"all.js"</span>))<span class="comment">//将待处理的文件进行合并,合并后的新文件的名称为 all.js</span></span><br><span class="line">    .pipe(uglify())<span class="comment">//再混淆</span></span><br><span class="line">    .pipe(gulp.dest(<span class="string">"./dist/js"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="7-gulp-htmlmin-压缩html文件"><a href="#7-gulp-htmlmin-压缩html文件" class="headerlink" title="7.gulp-htmlmin 压缩html文件"></a>7.gulp-htmlmin 压缩html文件</h2><ul>
+<li>压缩html代码需要使用到 <code>gulp-htmlmin</code>插件支持.使用npm安装该插件.<figure class="highlight js"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"yshtml"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.src(<span class="string">"./src/index.html"</span>)</span><br><span class="line">    .pipe(htmlmin(&#123;</span><br><span class="line">        collapseWhitespace:<span class="literal">true</span>, <span class="comment">//去空格</span></span><br><span class="line">        removeComments:<span class="literal">true</span><span class="comment">//去注释</span></span><br><span class="line">    &#125;))</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"./dist"</span>))</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="8-gulp-sass-将sass转换为-css"><a href="#8-gulp-sass-将sass转换为-css" class="headerlink" title="8.gulp-sass 将sass转换为 css"></a>8.gulp-sass 将sass转换为 css</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">gulp.task(<span class="string">"sass2css"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">    gulp.src(<span class="string">"./src/css/index.scss"</span>)</span><br><span class="line">    .pipe(sass())</span><br><span class="line">    .pipe(cssmin())</span><br><span class="line">    .pipe(gulp.dest(<span class="string">"./dist/css"</span>));</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure>
+<h2 id="9-gulp-less-将less转换为-css"><a href="#9-gulp-less-将less转换为-css" class="headerlink" title="9. gulp-less 将less转换为 css"></a>9. gulp-less 将less转换为 css</h2><h2 id="10-gulp-imagemin-压缩图片"><a href="#10-gulp-imagemin-压缩图片" class="headerlink" title="10. gulp-imagemin 压缩图片"></a>10. gulp-imagemin 压缩图片</h2><h2 id="11-gulp-管道流图示"><a href="#11-gulp-管道流图示" class="headerlink" title="11. gulp 管道流图示"></a>11. gulp 管道流图示</h2><p><img src="/images/01 gulp管道.png" alt="gulp管道流"></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2017/02/05/bower的使用/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                bower的使用
+            </a>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="Search" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="Search" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <span>有幸遇见</span>
+    
+    
+    <div class="count">
+        <a class="count articles"><span>5</span>Article</a>
+        <a class="count tags"><span>0</span>Tags</a>
+        <a class="count categories"><span>0</span>Categories</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: 'Open Lyrics',
+            close: 'Close Lyrics'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>Recent Posts</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            <div class="normal">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/03/05/generator函数/" title="generator函数">generator函数</a>
+                </p>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/02/17/react/" title="react的学习">react的学习</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/09/23/hello-world/" title="Hello World">Hello World</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/02/05/bower的使用/" title="bower的使用">bower的使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/08/05/gulp的简单使用/" title="gulp的简单使用">gulp的简单使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/text-shadowForlove" target="_blank">GitHub</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>Friend Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 有幸遇见
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>

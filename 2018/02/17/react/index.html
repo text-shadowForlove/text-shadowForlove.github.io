@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="有幸遇见">
+    
+    
+    
+    
+    
+    
+    <title>react的学习 | Hexo</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: 'Loading';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head></html>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">Open Lyrics</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">Top</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">Once you つ Now I</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">Once you つ Now I</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">react的学习</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2018-02-17
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h1 id="react-学习"><a href="#react-学习" class="headerlink" title="react 学习"></a><code>react 学习</code></h1><h2 id="基础知识点学习"><a href="#基础知识点学习" class="headerlink" title="基础知识点学习"></a><code>基础知识点学习</code></h2><ul>
+<li>Fragment 占位符(render函数里只允许返回一个根元素);</li>
+<li>immutable state不允许我们做任何改变,可以把state里的数据拷贝一份出来再进行修改</li>
+</ul>
+<h2 id="jsx里的细节"><a href="#jsx里的细节" class="headerlink" title="jsx里的细节"></a><code>jsx里的细节</code></h2><ul>
+<li><p>dangerouslySetInnerHTML 输入标签允许解析</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dangerouslySetInnerHTML = &#123;&#123;<span class="attr">__html</span>:item&#125;&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>引入样式</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">'./style.css'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>label标签 不能用for 要用htmlFor</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">label</span> <span class="attr">htmlFor</span>=<span class="string">"ipt"</span>&gt;</span>输入内容:<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="父组件向子组件传递值和方法-传递方法时注意要绑定方法的指向为父组件的this"><a href="#父组件向子组件传递值和方法-传递方法时注意要绑定方法的指向为父组件的this" class="headerlink" title="父组件向子组件传递值和方法,传递方法时注意要绑定方法的指向为父组件的this"></a><code>父组件向子组件传递值和方法,传递方法时注意要绑定方法的指向为父组件的this</code></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">TodoItem</span>  </span></span><br><span class="line"><span class="tag">  <span class="attr">content</span>=<span class="string">&#123;&#123;item:item,index:index&#125;&#125;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">handleDelete</span> = <span class="string">&#123;this.handleDelete.bind(this)&#125;</span></span></span><br><span class="line"><span class="tag">&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">TodoItem</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<h2 id="this-setState方法会接受一个参数-prevState上一次的数据"><a href="#this-setState方法会接受一个参数-prevState上一次的数据" class="headerlink" title="this.setState方法会接受一个参数,prevState上一次的数据"></a><code>this.setState方法会接受一个参数,prevState上一次的数据</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="循环子组件时-key值要放在最外层的元素上"><a href="#循环子组件时-key值要放在最外层的元素上" class="headerlink" title="循环子组件时,key值要放在最外层的元素上"></a><code>循环子组件时,key值要放在最外层的元素上</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.state.list.map(<span class="function">(<span class="params">item,index</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="keyword">return</span> (</span><br><span class="line">    &lt;Fragment key=&#123;index&#125;&gt;</span><br><span class="line">      &lt;TodoItem </span><br><span class="line">        content=&#123;&#123;<span class="attr">item</span>:item,<span class="attr">index</span>:index&#125;&#125;</span><br><span class="line">      &gt;</span><br><span class="line">      &lt;<span class="regexp">/TodoItem&gt;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>Fragment&gt;</span><br><span class="line">  )</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="react声明式开发-操作Dom是命令式开发-可以与其他框架并存-组件化-单向数据流-视图层的框架-函数式编程-维护容易"><a href="#react声明式开发-操作Dom是命令式开发-可以与其他框架并存-组件化-单向数据流-视图层的框架-函数式编程-维护容易" class="headerlink" title="react声明式开发(操作Dom是命令式开发), 可以与其他框架并存,组件化,单向数据流,视图层的框架,函数式编程(维护容易)"></a><code>react声明式开发(操作Dom是命令式开发), 可以与其他框架并存,组件化,单向数据流,视图层的框架,函数式编程(维护容易)</code></h2><h2 id="PropTypes与DefaultProps的应用"><a href="#PropTypes与DefaultProps的应用" class="headerlink" title="PropTypes与DefaultProps的应用"></a><code>PropTypes与DefaultProps的应用</code></h2><ul>
+<li>react 自带了prop-types,引入并对组件的参数进行校验:<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//isRequired表示必须要传</span></span><br><span class="line">  <span class="keyword">import</span> PropTypes <span class="keyword">from</span> <span class="string">'prop-types'</span>;</span><br><span class="line">  TodoItem.propTypes = &#123;</span><br><span class="line">    content: PropTypes.object.isRequired,</span><br><span class="line">    deleteItem: PropTypes.func,</span><br><span class="line">    index: PropTypes.number</span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//defaultProps表示默认值</span></span><br><span class="line">TodoItem.defaultProps = &#123;</span><br><span class="line">  test:<span class="string">'hello'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Props-State与render的关系"><a href="#Props-State与render的关系" class="headerlink" title="Props,State与render的关系"></a><code>Props,State与render的关系</code></h2><ul>
+<li>当组件的state或者props发生变化时,render函数就会自动执行</li>
+<li>父组件的render函数执行会导致子组件的render函数执行</li>
+</ul>
+<h2 id="React中的虚拟DOM"><a href="#React中的虚拟DOM" class="headerlink" title="React中的虚拟DOM"></a><code>React中的虚拟DOM</code></h2><ul>
+<li><p>实现原理</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">1.拿到state数据</span><br><span class="line">2.JSX模板 </span><br><span class="line">3.数据加模板生成虚拟DOM(虚拟DOM就是一个JS对象,用来描述真实DOM),</span><br><span class="line">  也就是:JSX + state 生成JS对象(虚拟DOM);</span><br><span class="line">例子:</span><br><span class="line">  &lt;div id=&quot;root&quot;&gt;&lt;span&gt;内容&lt;/span&gt;&lt;/div&gt;</span><br><span class="line">  虚拟DOM是个对象,可以理解为一个数组结构的对象:</span><br><span class="line">  [&apos;div&apos;,&#123;id:&quot;root&quot;&#125;,[&apos;span&apos;,&#123;&#125;,&apos;内容&apos;]];</span><br><span class="line">  通过一个js对象完整的描述了上述的DOM.</span><br><span class="line">4:将虚拟DOM渲染成真实的DOM</span><br><span class="line">5.state发生变化</span><br><span class="line">6.数据加模板生成新的虚拟DOM,例如:</span><br><span class="line">  [&apos;div&apos;,&#123;id:&quot;root&quot;&#125;,[&apos;span&apos;,&#123;&#125;,&apos;hello world&apos;]];</span><br><span class="line">7.比较原始虚拟DOM和新的虚拟DOM的区别(同层比对,Diff算法,difference差异算法),找到区别是span中的内容</span><br><span class="line">8.直接操作DOM,改变span中的内容</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>虚拟DOM带来的好处</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">1.提升了性能</span><br><span class="line">2.它使得跨端应用得以实现,React Native和Wexx,都是因为虚拟DOM的存在得以实现原生app</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>JSX语法  实际上是调用 React.createElement方法, 例子:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> <span class="xml"><span class="tag">&lt;<span class="name">div</span>&gt;</span>hello<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></span><br><span class="line"><span class="comment">//实际上是:</span></span><br><span class="line"><span class="keyword">return</span> React.createElement(<span class="string">'div'</span>,&#123;&#125;,<span class="string">'hello'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="React中的ref的使用"><a href="#React中的ref的使用" class="headerlink" title="React中的ref的使用"></a><code>React中的ref的使用</code></h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">ref</span>=<span class="string">&#123;(input)</span> =&gt;</span> &#123;this.input = input&#125; &#125;  id="ipt" value=&#123;this.state.inputValue&#125;       onChange=&#123;this.handleInputChange&#125;/&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">  handleInputChange(e) &#123;</span><br><span class="line">  <span class="comment">//ref的使用</span></span><br><span class="line">  <span class="keyword">const</span> value = <span class="keyword">this</span>.input.value;</span><br><span class="line">  <span class="keyword">this</span>.setState (&#123;</span><br><span class="line">    inputValue: value</span><br><span class="line">  &#125;)</span><br><span class="line">  </span><br><span class="line">  <span class="comment">// this.setState (&#123;</span></span><br><span class="line">  <span class="comment">//   inputValue: e.target.value</span></span><br><span class="line">  <span class="comment">// &#125;) </span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="this-setState是一个回调函数-它接收第二个参数是个函数-回调函数"><a href="#this-setState是一个回调函数-它接收第二个参数是个函数-回调函数" class="headerlink" title="this.setState是一个回调函数,它接收第二个参数是个函数(回调函数)"></a><code>this.setState是一个回调函数,它接收第二个参数是个函数(回调函数)</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">this</span>.setState(<span class="function">(<span class="params">prevState</span>) =&gt;</span> &#123;</span><br><span class="line"></span><br><span class="line">&#125;,() =&gt; &#123;</span><br><span class="line">  <span class="built_in">console</span>.log(<span class="string">'setState的回调函数'</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<h2 id="React中的生命周期函数-重点"><a href="#React中的生命周期函数-重点" class="headerlink" title="React中的生命周期函数(重点)"></a><code>React中的生命周期函数(重点)</code></h2><ul>
+<li><p>react生命周期图示<br><img src="/images/react生命周期流程图.png" alt="react生命周期流程图"><br><img src="/images/生命周期.png" alt="react生命周期流程图"></p>
+</li>
+<li><p>componentWillReceiveProps 函数有点特殊(只存在于子组件中),<br>执行时刻:1.子组件从父组件中接受了参数;<br>2.如果这个组件第一次存在于父组件中,不会执行,已经存在于这个父组件中才会被执行</p>
+</li>
+<li><p>shouldComponentUpdata 函数的使用场景(性能优化,父组件的state变化会导致子组件的props变化,减少子组件无用的render函数运行)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">shouldComponentUpdate(nextProps,nextState) &#123;</span><br><span class="line">        <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(nextProps.content));</span><br><span class="line">        <span class="keyword">if</span> (nextProps.content.item !== <span class="keyword">this</span>.props.content.item) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">true</span></span><br><span class="line">        &#125;<span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="literal">false</span></span><br><span class="line">        &#125; </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>ajax一般放在 componentDidMount 函数中</p>
+</li>
+<li><p>前端数据mock  数据劫持(浏览器不能开代理,不然劫持不成功)<br>whistle:<img src="/images/whistle.png" alt="whistle"><br>charles:<img src="/images/charles.png" alt="charles"></p>
+</li>
+</ul>
+<h2 id="react中实现css过渡动画"><a href="#react中实现css过渡动画" class="headerlink" title="react中实现css过渡动画"></a><code>react中实现css过渡动画</code></h2><ul>
+<li>使用 react-transition-group 实现动画<br>npm install react-transition-group –save;</li>
+<li><p>css:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"> <span class="selector-class">.fade-enter</span>,<span class="selector-class">.fade-appear</span>&#123;</span><br><span class="line"> <span class="attribute">opacity</span>: <span class="number">0</span></span><br><span class="line">&#125; </span><br><span class="line"><span class="selector-class">.fade-enter-active</span>, <span class="selector-class">.fade-appear-active</span>&#123;</span><br><span class="line"> <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line"> <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease-in;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fade-enter-done</span>&#123;</span><br><span class="line"> <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fade-exit</span> &#123;</span><br><span class="line"> <span class="attribute">opacity</span>: <span class="number">1</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fade-exit-active</span>&#123;</span><br><span class="line"> <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line"> <span class="attribute">transition</span>: opacity <span class="number">1s</span> ease-in;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-class">.fade-exit-done</span> &#123;</span><br><span class="line">    <span class="attribute">opacity</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>html 和 js</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; CSSTransition &#125; <span class="keyword">from</span> <span class="string">'react-transition-group'</span>;</span><br><span class="line">&lt;CSSTransition</span><br><span class="line">              <span class="keyword">in</span> = &#123;<span class="keyword">this</span>.state.show&#125;</span><br><span class="line">              timeout = &#123;<span class="number">2000</span>&#125;</span><br><span class="line">              classNames = <span class="string">"fade"</span></span><br><span class="line">              unmountOnExit</span><br><span class="line">              onEntered = &#123;(el) =&gt; &#123;el.style.color = <span class="string">'red'</span> &#125;&#125;</span><br><span class="line">              appear = &#123;<span class="literal">true</span>&#125;</span><br><span class="line">            &gt;</span><br><span class="line">              &lt;div&gt;hello&lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">&lt;/</span>CSSTransition&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<ul>
+<li>in 表示决定动画是否存在的变量</li>
+<li>timeout 表示动画持续时间</li>
+<li>classNames 表示css样式中的className取名</li>
+<li>unmountOnExit 表示是否移除这个元素, 写了是移除,不写是隐藏</li>
+<li>appear 表示是否在第一次进入页面是是否执行动画</li>
+<li>onEntered 表示动画执行结束执行的钩子函数</li>
+</ul>
+</blockquote>
+<ul>
+<li><code>多个元素的动画,在整个动画元素外包裹一个TransitionGrop,在单个元素上包裹CSSTransiton</code><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; CSSTransition,TransitionGroup &#125; <span class="keyword">from</span> <span class="string">'react-transition-group'</span>;</span><br><span class="line">    &lt;TransitionGroup&gt;</span><br><span class="line">        &#123;</span><br><span class="line">          <span class="keyword">this</span>.state.list.map(<span class="function">(<span class="params">item,index</span>) =&gt;</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> (</span><br><span class="line">            &lt;Fragment key = &#123;index&#125;&gt;</span><br><span class="line">              &lt;CSSTransition</span><br><span class="line">                <span class="keyword">in</span> = &#123;<span class="keyword">this</span>.state.show&#125;</span><br><span class="line">                timeout = &#123;<span class="number">2000</span>&#125;</span><br><span class="line">                classNames = <span class="string">"fade"</span></span><br><span class="line">                unmountOnExit</span><br><span class="line">                onEntered = &#123;(el) =&gt; &#123;el.style.color = <span class="string">'red'</span> &#125;&#125;</span><br><span class="line">                appear = &#123;<span class="literal">true</span>&#125;</span><br><span class="line">              &gt;</span><br><span class="line">                &lt;TodoItem  </span><br><span class="line">                  content=&#123;&#123;<span class="attr">item</span>:item,<span class="attr">index</span>:index&#125;&#125;</span><br><span class="line">                  handleDelete = &#123;<span class="keyword">this</span>.handleDelete.bind(<span class="keyword">this</span>)&#125;</span><br><span class="line">                &gt;</span><br><span class="line">                &lt;<span class="regexp">/TodoItem&gt;</span></span><br><span class="line"><span class="regexp">              &lt;/</span>CSSTransition&gt;</span><br><span class="line">            &lt;<span class="regexp">/Fragment&gt;</span></span><br><span class="line"><span class="regexp">            )</span></span><br><span class="line"><span class="regexp">          &#125;)</span></span><br><span class="line"><span class="regexp">        &#125;</span></span><br><span class="line"><span class="regexp">    &lt;/</span>TransitionGroup&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="Ant-Design-中ref的使用略有不同-ref是对组件的引用-Input为例"><a href="#Ant-Design-中ref的使用略有不同-ref是对组件的引用-Input为例" class="headerlink" title="Ant Design 中ref的使用略有不同,ref是对组件的引用,Input为例"></a><code>Ant Design 中ref的使用略有不同,ref是对组件的引用,Input为例</code></h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;Input ref=&#123;(input) =&gt; &#123;<span class="keyword">this</span>.input = input&#125;&#125; placeholder=<span class="string">"todo info"</span> style=&#123;&#123;<span class="attr">width</span>: <span class="string">'300px'</span>,<span class="attr">marginRight</span>: <span class="string">'8px'</span>&#125;&#125; onChange=&#123;<span class="keyword">this</span>.handleInputChange&#125;/&gt;</span><br><span class="line"></span><br><span class="line">handleInputChange(e) &#123; </span><br><span class="line">        <span class="built_in">console</span>.log(<span class="keyword">this</span>.input.input.value +<span class="string">'='</span>+ e.target.value)</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>Ant Design 的做删除功能,取index的值<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">List</span></span></span><br><span class="line"><span class="tag">      <span class="attr">style</span>=<span class="string">&#123;&#123;marginTop:</span>'<span class="attr">10px</span>',<span class="attr">width:</span>'<span class="attr">500px</span>'&#125;&#125;</span></span><br><span class="line">      header=&#123;&lt;div&gt;Header&lt;/div&gt;&#125;</span><br><span class="line">      footer=&#123;<span class="tag">&lt;<span class="name">div</span>&gt;</span>Footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#125;</span><br><span class="line">      bordered</span><br><span class="line">      dataSource=&#123;this.state.list&#125;</span><br><span class="line">      renderItem=&#123;(item,index) =&gt; (<span class="tag">&lt;<span class="name">List.Item</span> <span class="attr">onClick</span>=<span class="string">&#123;this.handleListClick.bind(this,index)&#125;</span>&gt;</span>&#123;item+':'+index&#125;<span class="tag">&lt;/<span class="name">List.Item</span>&gt;</span>)&#125;  </span><br><span class="line">/&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">handleListClick(index) &#123;</span><br><span class="line">      <span class="built_in">console</span>.log(index);</span><br><span class="line">      <span class="keyword">const</span> list = [...this.state.list];</span><br><span class="line">      list.splice(index,<span class="number">1</span>);</span><br><span class="line">      <span class="keyword">this</span>.setState(<span class="function"><span class="params">()</span> =&gt;</span> (&#123;list&#125;));</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<h2 id="Redux概念"><a href="#Redux概念" class="headerlink" title="Redux概念"></a><code>Redux概念</code></h2><ul>
+<li>Redux的工作流程<br>Redux Flow:<img src="/images/redux.png" alt="Redux"></li>
+</ul>
+<h2 id="创建store-引入reducer"><a href="#创建store-引入reducer" class="headerlink" title="创建store,引入reducer"></a><code>创建store,引入reducer</code></h2><ul>
+<li><p>store中:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; createStore &#125; <span class="keyword">from</span> <span class="string">'redux'</span>;</span><br><span class="line"><span class="comment">//把reducer传递给store</span></span><br><span class="line"><span class="keyword">import</span> reducer <span class="keyword">from</span> <span class="string">'./reducer'</span>;</span><br><span class="line"><span class="keyword">const</span> store = createStore(reducer);</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> store;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reducer中:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> defaultState = &#123;</span><br><span class="line">    inputValue: <span class="string">''</span>,</span><br><span class="line">    list: []</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> (state = defaultState,action) =&gt; &#123;</span><br><span class="line">    <span class="keyword">return</span> state;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件中取store中的数据,用store提供的getState方法:</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> store <span class="keyword">from</span> <span class="string">'./store/index'</span>;</span><br><span class="line"><span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">      <span class="keyword">super</span>(props);</span><br><span class="line">      <span class="keyword">this</span>.state = store.getState();</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="改变store中的数据"><a href="#改变store中的数据" class="headerlink" title="改变store中的数据"></a><code>改变store中的数据</code></h2><ul>
+<li><p>组件中创建action,通过store提供的dispatch方法把action传给store,store会自动把action传给reducer</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">handleClick() &#123;</span><br><span class="line">     <span class="keyword">const</span> list = [...this.state.list,<span class="keyword">this</span>.state.inputValue];</span><br><span class="line">     <span class="keyword">const</span> action = &#123;</span><br><span class="line">         type: <span class="string">'add_todo_item'</span>,</span><br><span class="line">         list</span><br><span class="line">     &#125;</span><br><span class="line">     store.dispatch(action);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reducer中,接受到action做出相应的处理,return的新数据newState传给store,store会自动的把新数据替换老数据state</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(action.type === <span class="string">'add_todo_item'</span>)&#123;</span><br><span class="line">      <span class="keyword">const</span> newState = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(state));</span><br><span class="line">      newState.list = action.list;</span><br><span class="line">      newState.inputValue = <span class="string">''</span>;</span><br><span class="line">      <span class="keyword">return</span> newState;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件中,通过store提供的subscribe方法订阅store中数据的变化,一旦数据变化就自动执行预先设置好的一个方法,在此方法中重新获取store中的数据</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constructor</span>(props)&#123;</span><br><span class="line">      <span class="keyword">super</span>(props);</span><br><span class="line">      <span class="keyword">this</span>.state = store.getState();</span><br><span class="line">      <span class="keyword">this</span>.handleInputChange = <span class="keyword">this</span>.handleInputChange.bind(<span class="keyword">this</span>);</span><br><span class="line">      <span class="keyword">this</span>.handleClick = <span class="keyword">this</span>.handleClick.bind(<span class="keyword">this</span>);</span><br><span class="line">      <span class="keyword">this</span>.handleStoreChange = <span class="keyword">this</span>.handleStoreChange.bind(<span class="keyword">this</span>);</span><br><span class="line">      <span class="comment">//此组件订阅store</span></span><br><span class="line">      store.subscribe(<span class="keyword">this</span>.handleStoreChange);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">handleStoreChange() &#123;</span><br><span class="line">      <span class="comment">//感知到了store变化,重新从store里取数据</span></span><br><span class="line">      <span class="keyword">this</span>.setState (store.getState());</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="优化action中的type-新建一个actionTypes的js文件-把字符串用变量代替-有利于快速找到type的拼写错误"><a href="#优化action中的type-新建一个actionTypes的js文件-把字符串用变量代替-有利于快速找到type的拼写错误" class="headerlink" title="优化action中的type,新建一个actionTypes的js文件,把字符串用变量代替,有利于快速找到type的拼写错误"></a><code>优化action中的type,新建一个actionTypes的js文件,把字符串用变量代替,有利于快速找到type的拼写错误</code></h2><ul>
+<li><p>actionTypes中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> CHANGE_INPUT_VALUE = <span class="string">'change_input_value'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> ADD_TODO_ITEM = <span class="string">'add_todo_item'</span>;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> DELETE_TODO_ITEM = <span class="string">'delete_todo_item'</span>;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM &#125; <span class="keyword">from</span> <span class="string">'./store/actionTypes'</span>;</span><br><span class="line"></span><br><span class="line">handleListClick(index) &#123;</span><br><span class="line">        <span class="keyword">const</span> action = &#123;</span><br><span class="line">            type: DELETE_TODO_ITEM,</span><br><span class="line">            index</span><br><span class="line">        &#125;</span><br><span class="line">        store.dispatch(action);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>reducer中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM &#125; <span class="keyword">from</span> <span class="string">'./store/actionTypes'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span>(action.type === DELETE_TODO_ITEM)&#123;</span><br><span class="line">        <span class="keyword">const</span> newState = <span class="built_in">JSON</span>.parse(<span class="built_in">JSON</span>.stringify(state));</span><br><span class="line">        newState.list.splice(action.index,<span class="number">1</span>);</span><br><span class="line">        <span class="keyword">return</span> newState;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="优化组件中创建很多action的问题-新建一个actionCreators-js文件提供创建action的方法-封装"><a href="#优化组件中创建很多action的问题-新建一个actionCreators-js文件提供创建action的方法-封装" class="headerlink" title="优化组件中创建很多action的问题,新建一个actionCreators.js文件提供创建action的方法(封装)"></a><code>优化组件中创建很多action的问题,新建一个actionCreators.js文件提供创建action的方法(封装)</code></h2><ul>
+<li><p>actionCreators.js 中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//使用actionCreator统一创建action</span></span><br><span class="line"><span class="keyword">import</span> &#123; CHANGE_INPUT_VALUE,ADD_TODO_ITEM,DELETE_TODO_ITEM &#125; <span class="keyword">from</span> <span class="string">'./actionTypes'</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getInputChangeAction = <span class="function">(<span class="params">value</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type:CHANGE_INPUT_VALUE,</span><br><span class="line">        value</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> getAddItemAction = <span class="function">(<span class="params">list</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type:ADD_TODO_ITEM,</span><br><span class="line">        list</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">const</span> deleteItemAction = <span class="function">(<span class="params">index</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> &#123;</span><br><span class="line">        type:DELETE_TODO_ITEM,</span><br><span class="line">        index</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>组件中</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> &#123; getInputChangeAction,getAddItemAction,deleteItemAction &#125; <span class="keyword">from</span> <span class="string">'./store/actionCreators'</span>;</span><br><span class="line">     handleInputChange(e) &#123;</span><br><span class="line">        <span class="comment">//创建action</span></span><br><span class="line">        <span class="comment">// const action = &#123;</span></span><br><span class="line">        <span class="comment">//     type:CHANGE_INPUT_VALUE,</span></span><br><span class="line">        <span class="comment">//     value: e.target.value</span></span><br><span class="line">        <span class="comment">// &#125;</span></span><br><span class="line">        <span class="keyword">const</span> action = getInputChangeAction(e.target.value)</span><br><span class="line">        <span class="comment">//将action传给store,store会把接受到的数据自动传给reducer</span></span><br><span class="line">        store.dispatch(action);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">        const  inputValue = this.input.input.value;</span></span><br><span class="line"><span class="comment">        this.setState(()=&gt;&#123;</span></span><br><span class="line"><span class="comment">            return &#123;</span></span><br><span class="line"><span class="comment">                inputValue</span></span><br><span class="line"><span class="comment">            &#125;</span></span><br><span class="line"><span class="comment">        &#125;)</span></span><br><span class="line"><span class="comment">        */</span></span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="redux的设计原则"><a href="#redux的设计原则" class="headerlink" title="redux的设计原则"></a><code>redux的设计原则</code></h2><ul>
+<li>store是唯一的</li>
+<li>只有store能够改变自己的内容,reducer只是把新数据传给store而不是改变store</li>
+<li>reducer只能是纯函数,纯函数指的是,给定固定的输入,就会有固定的输出,而且不会有任何副作用,所以reducer里不能有异步操作和跟时间相关的操作</li>
+</ul>
+<h2 id="redux的核心API"><a href="#redux的核心API" class="headerlink" title="redux的核心API"></a><code>redux的核心API</code></h2><ul>
+<li>createStore 创建store</li>
+<li>store.dispatch 传递action</li>
+<li>store.getState 可以获取store中所有的数据内容</li>
+<li>store.subscribe 组件可以订阅store中数据的变化</li>
+</ul>
+<h2 id="UI组件-负责页面渲染-和容器组件-负责js的业务逻辑-的拆分"><a href="#UI组件-负责页面渲染-和容器组件-负责js的业务逻辑-的拆分" class="headerlink" title="UI组件(负责页面渲染)和容器组件(负责js的业务逻辑)的拆分"></a><code>UI组件(负责页面渲染)和容器组件(负责js的业务逻辑)的拆分</code></h2><ul>
+<li><p>UI组件,通过传递属性和方法的形式使用父组件的方法和属性(负责页面渲染)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> React, &#123; Component,Fragment &#125; <span class="keyword">from</span> <span class="string">'react'</span>;</span><br><span class="line"><span class="keyword">import</span> &#123; Input,Button,List &#125; <span class="keyword">from</span> <span class="string">'antd'</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">TodoListUI</span> <span class="keyword">extends</span> <span class="title">Component</span> </span>&#123;</span><br><span class="line">    render()&#123;</span><br><span class="line">        <span class="keyword">return</span> ( </span><br><span class="line">            &lt;Fragment&gt;</span><br><span class="line">                &lt;div style=&#123;&#123;<span class="attr">marginTop</span>: <span class="string">'10px'</span>,<span class="attr">marginLeft</span>: <span class="string">'10px'</span>&#125;&#125;&gt;</span><br><span class="line">                    &lt;Input value= &#123;<span class="keyword">this</span>.props.inputValue&#125;  placeholder=<span class="string">"todo info"</span> style=&#123;&#123;<span class="attr">width</span>: <span class="string">'300px'</span>,<span class="attr">marginRight</span>: <span class="string">'8px'</span>&#125;&#125; onChange=&#123;<span class="keyword">this</span>.props.handleInputChange&#125;/&gt;</span><br><span class="line">                    &lt;Button type=<span class="string">"primary"</span> onClick=&#123;<span class="keyword">this</span>.props.handleClick&#125;&gt;提交&lt;<span class="regexp">/Button&gt;</span></span><br><span class="line"><span class="regexp">                    &lt;List</span></span><br><span class="line"><span class="regexp">                        style=&#123;&#123;marginTop:'10px',width:'500px'&#125;&#125;</span></span><br><span class="line"><span class="regexp">                        header=&#123;&lt;div&gt;Header&lt;/</span>div&gt;&#125;</span><br><span class="line">                        footer=&#123;&lt;div&gt;Footer&lt;<span class="regexp">/div&gt;&#125;</span></span><br><span class="line"><span class="regexp">                        bordered</span></span><br><span class="line"><span class="regexp">                        dataSource=&#123;this.props.list&#125;</span></span><br><span class="line"><span class="regexp">                        renderItem=&#123;(item,index) =&gt; (&lt;List.Item onClick=&#123;() =&gt; &#123;this.props.handleListClick(index)&#125;&#125;&gt;&#123;item+':'+index&#125;&lt;/</span>List.Item&gt;)&#125;  </span><br><span class="line">                    /&gt;</span><br><span class="line">                &lt;<span class="regexp">/div&gt;</span></span><br><span class="line"><span class="regexp">            &lt;/</span>Fragment&gt;     </span><br><span class="line">        )</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> TodoListUI;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>容器组件直接render UI组件即可(负责业务逻辑)</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">render() &#123;</span><br><span class="line">      <span class="keyword">return</span>  <span class="xml"><span class="tag">&lt;<span class="name">TodoListUI</span></span></span></span><br><span class="line"><span class="xml">               inputValue = &#123;this.state.inputValue&#125;</span></span><br><span class="line"><span class="xml">               handleInputChange = &#123;this.handleInputChange&#125;</span></span><br><span class="line"><span class="xml">               handleClick = &#123;this.handleClick&#125;</span></span><br><span class="line"><span class="xml">               list = &#123;this.state.list&#125;</span></span><br><span class="line"><span class="xml">               handleListClick = &#123;this.handleListClick&#125;</span></span><br><span class="line"><span class="xml">              &gt;<span class="tag">&lt;/<span class="name">TodoListUI</span>&gt;</span></span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>无状态组件:只有一个render函数的组件,可以直接返回一个函数.修改之后的无状态组件(比普通组件性能更好)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">const TodoListUI = (props) =&gt; &#123;</span><br><span class="line">  return (</span><br><span class="line">      <span class="tag">&lt;<span class="name">Fragment</span>&gt;</span></span><br><span class="line">              <span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">&#123;&#123;marginTop:</span> '<span class="attr">10px</span>',<span class="attr">marginLeft:</span> '<span class="attr">10px</span>'&#125;&#125;&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">Input</span> <span class="attr">value</span>= <span class="string">&#123;props.inputValue&#125;</span>  <span class="attr">placeholder</span>=<span class="string">"todo info"</span> <span class="attr">style</span>=<span class="string">&#123;&#123;width:</span> '<span class="attr">300px</span>',<span class="attr">marginRight:</span> '<span class="attr">8px</span>'&#125;&#125; <span class="attr">onChange</span>=<span class="string">&#123;props.handleInputChange&#125;/</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">Button</span> <span class="attr">type</span>=<span class="string">"primary"</span> <span class="attr">onClick</span>=<span class="string">&#123;props.handleClick&#125;</span>&gt;</span>提交<span class="tag">&lt;/<span class="name">Button</span>&gt;</span></span><br><span class="line">                  <span class="tag">&lt;<span class="name">List</span></span></span><br><span class="line"><span class="tag">                      <span class="attr">style</span>=<span class="string">&#123;&#123;marginTop:</span>'<span class="attr">10px</span>',<span class="attr">width:</span>'<span class="attr">500px</span>'&#125;&#125;</span></span><br><span class="line">                      header=&#123;&lt;div&gt;Header&lt;/div&gt;&#125;</span><br><span class="line">                      footer=&#123;<span class="tag">&lt;<span class="name">div</span>&gt;</span>Footer<span class="tag">&lt;/<span class="name">div</span>&gt;</span>&#125;</span><br><span class="line">                      bordered</span><br><span class="line">                      dataSource=&#123;props.list&#125;</span><br><span class="line">                      renderItem=&#123;(item,index) =&gt; (<span class="tag">&lt;<span class="name">List.Item</span> <span class="attr">onClick</span>=<span class="string">&#123;(index)</span> =&gt;</span> &#123;props.handleListClick(index)&#125;&#125;&gt;&#123;item+':'+index&#125;<span class="tag">&lt;/<span class="name">List.Item</span>&gt;</span>)&#125;  </span><br><span class="line">                  /&gt;</span><br><span class="line">              <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">Fragment</span>&gt;</span>  </span><br><span class="line">  )</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+</ul>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2018/03/05/generator函数/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                generator函数
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2017/09/23/hello-world/">
+                Hello World
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="Search" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="Search" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <span>有幸遇见</span>
+    
+    
+    <div class="count">
+        <a class="count articles"><span>5</span>Article</a>
+        <a class="count tags"><span>0</span>Tags</a>
+        <a class="count categories"><span>0</span>Categories</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: 'Open Lyrics',
+            close: 'Close Lyrics'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>Recent Posts</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            <div class="normal">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/03/05/generator函数/" title="generator函数">generator函数</a>
+                </p>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/02/17/react/" title="react的学习">react的学习</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/09/23/hello-world/" title="Hello World">Hello World</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/02/05/bower的使用/" title="bower的使用">bower的使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/08/05/gulp的简单使用/" title="gulp的简单使用">gulp的简单使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/text-shadowForlove" target="_blank">GitHub</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>Friend Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 有幸遇见
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>

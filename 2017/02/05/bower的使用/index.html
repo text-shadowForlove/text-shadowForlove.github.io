@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="有幸遇见">
+    
+    
+    
+    
+    
+    
+    <title>bower的使用 | Hexo</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: 'Loading';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head></html>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">Open Lyrics</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">Top</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">Once you つ Now I</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">Once you つ Now I</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">bower的使用</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2017-02-05
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h1 id="Bower的使用"><a href="#Bower的使用" class="headerlink" title="Bower的使用"></a>Bower的使用</h1><h2 id="1-Bower简介"><a href="#1-Bower简介" class="headerlink" title="1 Bower简介"></a>1 Bower简介</h2><ul>
+<li><a href="http:bower.io" target="_blank" rel="noopener">Bower官网</a></li>
+<li>其功能和npm类似.利用bower可以管理插件/类库.是1个前端包管理工具.</li>
+<li>其直接从github下载.其依赖于git和npm</li>
+<li>Bower是1个前端的插件市场 npm是1个前后端的插件市场.</li>
+<li>npm <a href="https://www.npmjs.com/" target="_blank" rel="noopener">https://www.npmjs.com/</a></li>
+<li>bower  github</li>
+</ul>
+<h2 id="2-Bower安装"><a href="#2-Bower安装" class="headerlink" title="2. Bower安装"></a>2. Bower安装</h2><ul>
+<li>安装nodejs 拥有npm工具.</li>
+<li>安装git</li>
+<li>使用npm安装bower <code>npm install -g bower</code></li>
+</ul>
+<h2 id="3-Bower使用"><a href="#3-Bower使用" class="headerlink" title="3. Bower使用"></a>3. Bower使用</h2><ul>
+<li>可以在git bash中使用使用bower,也可以直接在命令行工具中使用bower</li>
+<li>一般使用步骤<ul>
+<li>初始化bower <code>bower init</code> 该命令用来在项目文件夹中初始化bower环境,生成配置文件.</li>
+<li>使用<code>bower install xxx --save</code>命令来进行安装.<ul>
+<li>会在当前项目目录下生成1个<code>bower_components</code>目录,将包存储在其中.</li>
+<li>指定下载目录的方式.<ul>
+<li>新建<code>.bowerrc</code>文件</li>
+<li><code>{directory:&quot;app/vendor&quot;}</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>使用<code>bower uninstall xxx --save</code>命令来移除包</li>
+</ul>
+</li>
+</ul>
+<h2 id="4-Bower的特点"><a href="#4-Bower的特点" class="headerlink" title="4. Bower的特点"></a>4. Bower的特点</h2><ul>
+<li>如果A包依赖于B包.那么在下载A包的时候 会自动下载B包.</li>
+<li>在A包没有删除的情况下,无法删除B包.</li>
+<li>在删除A包的时候,如果无其他包依赖A 会连着A一起删除.否则不会删除A.</li>
+</ul>
+<h1 id="Browser-sync"><a href="#Browser-sync" class="headerlink" title="Browser-sync"></a>Browser-sync</h1><h2 id="1-Browser-sync简介"><a href="#1-Browser-sync简介" class="headerlink" title="1.Browser-sync简介"></a>1.Browser-sync简介</h2><ul>
+<li>当代码发生改变以后,浏览器就自动刷新.</li>
+<li>这是<code>browser-sync</code>提供的最主要的功能</li>
+</ul>
+<h2 id="2-browser-sync安装"><a href="#2-browser-sync安装" class="headerlink" title="2.browser-sync安装"></a>2.browser-sync安装</h2><ul>
+<li><code>npm install browser-sync -g</code> 使用该命令全局安装.<ul>
+<li><code>-dev</code>参数作用: 代表该插件是供开发阶段使用,并不是给用户使用的.<h2 id="3-browser-sync使用"><a href="#3-browser-sync使用" class="headerlink" title="3.browser-sync使用"></a>3.browser-sync使用</h2></li>
+</ul>
+</li>
+<li>在项目文件夹中执行命令<code>browser-sync start --server --files &quot;指定要监视的文件&quot;</code></li>
+<li>这个时候,会启动服务 自动打开网页</li>
+<li>当我们修改代码 保存的时候 浏览器就会自动刷新.</li>
+<li>files参数可以使用通配符,也可以指定多个需要监视的文件.文件名之间使用逗号分隔.</li>
+</ul>
+<h2 id="4-浏览器兼容性测试"><a href="#4-浏览器兼容性测试" class="headerlink" title="4.浏览器兼容性测试."></a>4.浏览器兼容性测试.</h2><ul>
+<li>浏览器操作将会被同步.</li>
+</ul>
+<h2 id="5-browser-sync后台"><a href="#5-browser-sync后台" class="headerlink" title="5.browser-sync后台"></a>5.browser-sync后台</h2><ul>
+<li>可以设置具体的同步参数.</li>
+</ul>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2017/09/23/hello-world/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                Hello World
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2016/08/05/gulp的简单使用/">
+                gulp的简单使用
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="Search" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="Search" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <span>有幸遇见</span>
+    
+    
+    <div class="count">
+        <a class="count articles"><span>5</span>Article</a>
+        <a class="count tags"><span>0</span>Tags</a>
+        <a class="count categories"><span>0</span>Categories</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: 'Open Lyrics',
+            close: 'Close Lyrics'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>Recent Posts</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            <div class="normal">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/03/05/generator函数/" title="generator函数">generator函数</a>
+                </p>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/02/17/react/" title="react的学习">react的学习</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/09/23/hello-world/" title="Hello World">Hello World</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/02/05/bower的使用/" title="bower的使用">bower的使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/08/05/gulp的简单使用/" title="gulp的简单使用">gulp的简单使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/text-shadowForlove" target="_blank">GitHub</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>Friend Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 有幸遇见
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>
