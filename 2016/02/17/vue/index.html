@@ -1,0 +1,1525 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="有幸遇见">
+    
+    <meta name="description" content="再牛逼的梦想也抵不住傻逼似得坚持">
+    
+    
+    
+    
+    
+    
+    <title>vue | Hexo</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: 'Loading';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head></html>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">Open Lyrics</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">Top</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">Once you つ Now I</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">Once you つ Now I</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">vue</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2016-02-17
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <h2 id="基本知识点"><a href="#基本知识点" class="headerlink" title="基本知识点"></a>基本知识点</h2><pre><code>指令
+组件
+过滤器
+路由
+网络请求
+</code></pre><hr>
+<h2 id="Vue基本概念介绍"><a href="#Vue基本概念介绍" class="headerlink" title="Vue基本概念介绍"></a>Vue基本概念介绍</h2><pre><code>渐进式
+    JavaScript 框架 
+
+特点:易用 灵活 高效
+
+开发PC端:网站和后台管理系统
+开发移动端 WebApp 原生App
+</code></pre><h2 id="MVC-amp-MVVM"><a href="#MVC-amp-MVVM" class="headerlink" title="MVC&amp;MVVM"></a>MVC&amp;MVVM</h2><pre><code>MVVM
+M:model 模型，提供数据
+VM: view-model 相当于控制器 负责调度
+V:view 负责呈现
+
+好处:低耦合 可重用性
+</code></pre><h2 id="Vue中体现MVVM"><a href="#Vue中体现MVVM" class="headerlink" title="Vue中体现MVVM"></a>Vue中体现MVVM</h2><pre><code>View : 写在id=app的div中
+View-Model : Vue实例，Vue实例中必须要有一个el属性(告诉Vue解析哪一块内容)
+Model:提供数据(来自服务器)
+</code></pre><hr>
+<h2 id="指令"><a href="#指令" class="headerlink" title="指令"></a>指令</h2><pre><code>目的:减少dom操作，让我们程序员只关注业务逻辑，在我们框架中，框架建议我们少操作dom，但是如果以后需要操作dom，还是可以操作的
+
+{{}} 插值表达式
+v-text/v-html
+v-on
+    在写v-on的时候，如果没有参数可以不用写`()`
+    v-on:可以写成`@`
+    事件类型支持 百度
+
+v-bind
+    为了不让我们在页面中的内容写死
+    v-bind:可以简写成`:`
+
+v-model
+    双向数据绑定
+        模型 ---&gt; 视图
+        视图 ---&gt; 模型
+
+    思考:
+        Vue双向数据绑定的实现原理
+
+v-if/v-show
+    参考:https://cn.vuejs.org/v2/guide/conditional.html
+
+    当要显示或是隐藏某个元素的时候，用得着
+
+    v-if 当值是true创建并且显示出来
+            false 不会创建
+
+    v-show 当值是true创建并且显示出来
+            false 创建不现实出来
+
+    开发中如何抉择?
+        如果需要频繁的显示隐藏/show
+
+        隐藏显示一次，用v-if比较好
+
+v-for
+</code></pre><hr>
+<h2 id="组件"><a href="#组件" class="headerlink" title="组件"></a>组件</h2><pre><code>把一些相应的代码 视图渲染，数据请求，样式处理等等
+这些代码，写在一个单独的文件中，形成了一个单独的功
+能，这个文件我们就可以称之为组件
+
+好处:
+    可以简化id=app div中的代码
+    可以达到复用的复用
+
+
+组件的五种写法【掌握最后一种，看懂前四种】
+1、先定义、再注册、再使用
+2、定义和注册一步到位，再使用
+3、简化模版的写法1 使用template自定义标签
+4、简化模版的写法2
+
+5、单文件组件(.vue结尾的文件)
+    vue-loader
+
+注意点:
+    在函数的定义中，我们的data必须是一个函数，并且必须返回一个对象
+</code></pre><hr>
+<h2 id="过滤器"><a href="#过滤器" class="headerlink" title="过滤器"></a>过滤器</h2><pre><code>作用:对服务器返回的数据进行过滤
+
+分两大类
+    私有过滤器
+        私有过滤器是写在组件内部的
+
+    全局过滤器
+        全局的过滤器写在全局里面
+
+注意点:
+    1、调用过滤器的时候，原始数据 | 过滤器
+    2、其中原始数据会作为过滤器函数的第一个参数
+    3、不管是私有过滤器还是全局过滤器，调用方式都是一样的
+    4、对于组件来说，私有过滤器的优先级要高于全局过滤器
+
+什么时候用私有过滤器，什么时候用全局
+</code></pre><hr>
+<h2 id="路由"><a href="#路由" class="headerlink" title="路由"></a>路由</h2><pre><code>作用:
+    前端:
+        单页面应用(SPA)，当触发了不同的链接，展现不同的内容(组件)
+
+    后台:分门别类的处理浏览器请求
+
+Angular
+    html : ng-view   &lt;a&gt;
+    js: 处理路由
+
+Vue
+    html :
+        router-view  &lt;router-link&gt;
+
+    js：
+        1、组件定义好
+        2、创建路由对象，设置路由规则
+        3、把路由对象注入到根实例，让整个应用拥有路由的功能
+</code></pre><hr>
+<h2 id="vue-resource"><a href="#vue-resource" class="headerlink" title="vue-resource"></a>vue-resource</h2><pre><code>基于Vue
+    能够发送GET
+           POST
+           JSONP
+</code></pre><hr>
+<h1 id="内容回顾"><a href="#内容回顾" class="headerlink" title="内容回顾"></a>内容回顾</h1><h2 id="MVVM"><a href="#MVVM" class="headerlink" title="MVVM"></a>MVVM</h2><pre><code>View: id=app 的div
+Model:模型，提供数据的，在vm的一个属性 data，注意，在component中data必须是函数，并且函数里面要返回对象
+View-Model: Vue实例/Vue对象，一般项目中只有一个Vue实例，称之为根实例
+</code></pre><h2 id="指令-1"><a href="#指令-1" class="headerlink" title="指令"></a>指令</h2><pre><code>作用:尽可能少的操作dom，把精力放在业务逻辑上(数据)
+{{}}插值表达式
+v-text/v-html
+v-on
+v-bind 单向数据绑定 model---&gt;view
+v-model 双向 model---&gt;view  view---&gt;model
+v-if/v-show
+v-for
+</code></pre><h2 id="组件-1"><a href="#组件-1" class="headerlink" title="组件"></a>组件</h2><pre><code>把一些功能相似的代码(渲染页面，网络请求，样式)放在一个文件中(.vue)，我们把这个文件就称之为组件
+
+好处:
+    复用性强
+    对id=app 不用写很多散的代码在里面
+
+组件的五中写法
+1、先定义，再注册，再使用
+2、定义注册一步到位，再使用
+3、对我们定义组件时候的template的优化---template
+4、对我们定义组件时候的template的优化---script
+
+5、单文件组件 .vue
+    tempalte 写html代码
+    style 样式代码
+    script 业务逻辑，发送网络请求，接收用户点击等
+</code></pre><h2 id="过滤器-1"><a href="#过滤器-1" class="headerlink" title="过滤器"></a>过滤器</h2><pre><code>私有
+    组件的filters里面
+
+全局
+    Vue.filter(&apos;过滤器名称&apos;,处理函数)
+
+1、过滤器其实是函数，他一定要接收一个参数，并且第一个参数是`|`前面的内容
+2、他必须要将过滤之后的结果通过return返回回去
+</code></pre><h2 id="路由-1"><a href="#路由-1" class="headerlink" title="路由"></a>路由</h2><pre><code>html
+    router-link 超链接
+    router-view 路由占位
+
+js
+    定义组件/导入写好的组件
+    创建路由对象，设置路由规则
+    在根实例中注入路由对象，让整个应用拥有路由功能
+</code></pre><h2 id="vue-resource-1"><a href="#vue-resource-1" class="headerlink" title="vue-resource"></a>vue-resource</h2><pre><code>参考:https://github.com/pagekit/vue-resource
+
+this.$http.get(url).then(成功的回调，失败的回调)
+this.$http.post(url,{请求体},{emulateJSON:true}).then(成功的回调，失败的回调)
+this.$http.jsonp(url).then(成功的回调，失败的回调)
+</code></pre><hr>
+<h2 id="Webpack"><a href="#Webpack" class="headerlink" title="Webpack"></a>Webpack</h2><pre><code>参考：http://zhaoda.net/webpack-handbook/
+    http://www.jianshu.com/p/42e11515c10f
+
+webpack1.x和2.x的升级对比
+https://segmentfault.com/a/1190000008181955
+</code></pre><h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><pre><code>Webpack 是当下最热门的前端资源模块化管理和打包工
+具。它可以将许多松散的模块按照依赖和规则打包成符合
+生产环境部署的前端资源。还可以将按需加载的模块进行
+代码分隔，等到实际需要的时候再异步加载。通过 
+loader 的转换，任何形式的资源都可以视作模块，比如
+CommonJs 模块、 AMD 模块、 ES6 模块、CSS、图片、
+JSON、Coffeescript、 LESS 等。
+
+通过webpack能够对我们项目的所有模块进行打包，把它变成符合生产环境的静态资源
+</code></pre><h2 id="核心概念"><a href="#核心概念" class="headerlink" title="核心概念"></a>核心概念</h2><pre><code>webpack1的文档:http://webpack.github.io/docs/
+webpack2的文档:https://doc.webpack-china.org/
+
+核心概念参考:https://doc.webpack-china.org/concepts/
+
+入口:项目打包的入口，一般我们只需要打包依赖的根文件
+
+出口:一般是吧所有的模块打包之后，生成一个叫做bundle.js的文件
+
+Loader:默认情况下，webpack只能打包.js结尾的文件（模块），要打包其它其它后缀的文件，需要使用对应的loader(参考:https://doc.webpack-china.org/loaders/)
+
+插件:让我们的webpack更加牛逼
+    webpack内置很多插件
+
+配置文件:为了简化我们打包的指令
+</code></pre><h2 id="使用"><a href="#使用" class="headerlink" title="使用"></a>使用</h2><pre><code>参考:http://zhaoda.net/webpack-handbook/usage.html
+
+1、打包单个js文件
+    1.1、写好entry.js文件的内容
+    1.2、使用`webpack entry.js bundle.js`打包
+    1.3、新建一个index.html，通过script导入bundle.js
+    1.4、运行index.html就可以看到效果啦
+
+    注意:在html中导入的是打包之后的文件，不是源文件
+
+2、打包多个js文件(多个js文件之间有依赖关系)
+    2.1、写好entry.js 和 module.js文件的内容
+    2.2、在entry.js导入module.js并且使用
+    2.3、使用`webpack entry.js bundle.js`打包
+    2.4、新建一个index.html，通过script导入bundle.js
+    2.5、运行index.html就可以看到效果啦
+
+    注意:在html中导入的是打包之后的文件，不是源文件
+
+3、打包非js文件(以.css为例)
+    2.1、写好entry.js、module.js、site.css文件的内容
+    2.2 在entry.js导入module.js、site.css并且使用
+    2.3 在entry.js中导入site.css的使用，要这样写
+        require(&apos;!style-loader!css-loader!./site.css&apos;)
+    2.4、使用`webpack 入口文件 出口文件`打包
+    2.5、新建一个index.html，通过script导入bundle.js
+    2.6、运行index.html就可以看到效果啦
+
+    注意：如果你不想在入口文件导入css的时候，前面加上`!style-loader!css-loader!`可以在打包的时候，在我们输出文件的后面加上 --module-bind &quot;css=style-loader!css-loader&quot;
+    例如
+        webpack entry.js bundle.js --module-bind &quot;css=style-loader!css-loader&quot; 注意window下用`&quot;&quot;`
+</code></pre><h2 id="webpack-config-js-配置文件"><a href="#webpack-config-js-配置文件" class="headerlink" title="webpack.config.js 配置文件"></a>webpack.config.js 配置文件</h2><pre><code>作用:简化打包指令
+
+1、在项目根目录创建一个`webpack.config.js`
+2、在webpack.config.js中配置好入口、出口、loaders、plugins等等
+    拷贝，因为自己写非常容易写错
+</code></pre><h2 id="插件的使用-webpack本地包自带的"><a href="#插件的使用-webpack本地包自带的" class="headerlink" title="插件的使用(webpack本地包自带的)"></a>插件的使用(webpack本地包自带的)</h2><pre><code>使用注意：
+    plugins是和entry、output、module同级的不要搞错了
+</code></pre><h2 id="webpack打包时候的参数"><a href="#webpack打包时候的参数" class="headerlink" title="webpack打包时候的参数"></a>webpack打包时候的参数</h2><pre><code>webpack --progress 查看打包进度的
+webpack --config 指定webpack的打包的配置文件
+webpack --watch【了解】监控源代码更改，重新打包，不会刷新浏览器
+webpack -p【了解】 打包的时候，顺便压缩
+
+
+注意事项:webpack后面可以同时接多个参数，并且参数之间没有先后顺序之分
+</code></pre><hr>
+<h2 id="使用Webpack构建Vue项目-纯手工"><a href="#使用Webpack构建Vue项目-纯手工" class="headerlink" title="使用Webpack构建Vue项目(纯手工)"></a>使用Webpack构建Vue项目(纯手工)</h2><h3 id="先把项目的基本结构搭建出来（在页面上看到Hello-Vue）"><a href="#先把项目的基本结构搭建出来（在页面上看到Hello-Vue）" class="headerlink" title="先把项目的基本结构搭建出来（在页面上看到Hello Vue）"></a>先把项目的基本结构搭建出来（在页面上看到<code>Hello Vue</code>）</h3><pre><code>1、创建必要的文件和文件夹
+    szhmqd10vue
+        src
+            main.js项目打包的入口文件
+            App.vue项目启动之后看到的第一个页面
+
+        package.json 项目的配置文件
+        webpack.develop.config.js 开发阶段使用的webpack配置文件
+
+2、App.vue、main.js、webpack.develop.config.js写内容
+    App.vue
+        template:组件显示的内容写在这里
+
+    main.js
+        1、导入App.vue
+        2、安装vue这个第三方包 npm i vue --save
+</code></pre><h3 id="webpack打包bundle-js把内容呈现出来（回顾上午讲的内容）"><a href="#webpack打包bundle-js把内容呈现出来（回顾上午讲的内容）" class="headerlink" title="webpack打包bundle.js把内容呈现出来（回顾上午讲的内容）"></a>webpack打包bundle.js把内容呈现出来（回顾上午讲的内容）</h3><pre><code>1、先打包成bundle.js
+    1.1、在webpack.develop.config.js中写好配置的代码
+    1.2、安装 vue-loader vue-template-compiler css-loader 这几个包
+    说明，因为项目中到时候肯定要用到css文件，所有我就索性把style-loader装了
+    1.3 使用`webpack --progress --config webpack.develop.config.js`
+
+2、创建一个index.html，然后导入bundle.js运行
+</code></pre><h3 id="使用webpack-dev-server-amp-html-webpack-plugin实现所见即所得"><a href="#使用webpack-dev-server-amp-html-webpack-plugin实现所见即所得" class="headerlink" title="使用webpack-dev-server&amp;html-webpack-plugin实现所见即所得"></a>使用webpack-dev-server&amp;html-webpack-plugin实现所见即所得</h3><pre><code>目的:运行项目的时候，让其在浏览器的内容中生成bundle.js和index.html，然后当我们更改了我们项目的源代码(App.vue)，实现热更新
+
+html-webpack-plugin 
+    在内存中根据模版文件生成一个index.html，并且自动导入生成bundle.js
+
+    1、先安装 html-webpack-plugin webpack webpack-dev-server
+    2、在项目根目录创建模版页面 template.html
+        在这里面写id=app的div的代码即可，不要写导入bundle.js
+
+    3、在webpack.develop.config.js中写
+        参考:https://github.com/jantimon/html-webpack-plugin
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">new HtmlWebpackPlugin(&#123;</span><br><span class="line">          template:&apos;./template.html&apos;,</span><br><span class="line">          filename: &apos;index.html&apos;</span><br><span class="line">      &#125;)</span><br></pre></td></tr></table></figure>
+
+
+webpack-dev-server 全局包
+    在内存中打包生成bundle.js，把我们的index.html和bundle.js运行起来
+    并且实现热更新
+
+    没有实现热更新打包的指令
+        webpack-dev-server --progress --config webpack.develop.config.js 
+
+    优化
+        webpack-dev-server --progress --config webpack.develop.config.js --port 3008 --open --hot
+</code></pre><hr>
+<h2 id="webpack-dev-server-和-webpack-有啥关系呢"><a href="#webpack-dev-server-和-webpack-有啥关系呢" class="headerlink" title="webpack-dev-server 和 webpack 有啥关系呢?"></a>webpack-dev-server 和 webpack 有啥关系呢?</h2><pre><code>webpack-dev-server&amp;webpack
+
+相同点:
+    都能进行打包，webpack有的功能，webpack-dev-server都有，并且还有些功能是webpack不具备了(比如热更新)
+
+    webpack --progress --config xxxx
+    webpack-dev-server --progress --config xxxx
+
+区别:
+    应用场景不一样
+
+        webpack-dev-sever 用在开发阶段，在浏览器内存中生成bundle.js
+
+        webpack 用在生产阶段，它会在项目dist目录下面生成一个实实在在的bundle.js
+
+    产生的效果不一样
+        webpack-dev-server 打包之后，除了在内存中生成一个bundle.js文件，它还会开启一个Node服务，来运行我们的index.html和bundle.js
+
+        webpack 打包之后，不会开启服务运行我们的index.html和bundle.js，这个必须要借助于VSCode Ease Server
+</code></pre><hr>
+<h2 id="今天安装的第三方包有哪些"><a href="#今天安装的第三方包有哪些" class="headerlink" title="今天安装的第三方包有哪些?"></a>今天安装的第三方包有哪些?</h2><pre><code>vue 
+    在哪里用到:
+        main.js中我们去要渲染App.vue的时候，需要用到
+    安装方式:
+        cnpm i vue --save
+
+vue-loader vue-template-compiler css-loader
+    在哪里用到:
+        打包.vue文件的时候用到
+    安装方式:
+        npm i vue-loader vue-template-compiler css-loader --save-dev
+
+html-webpack-plugin webpack webpack-dev-server
+    在哪里用到:
+        根据模版文件，在内存中生成一个index.html
+    安装方式:
+        npm i html-webpack-plugin webpack webpack-dev-server --save-dev
+</code></pre><h2 id="建立最基本的文件和文件夹"><a href="#建立最基本的文件和文件夹" class="headerlink" title="建立最基本的文件和文件夹"></a>建立最基本的文件和文件夹</h2><h2 id="用webpack来打包我们的源代码"><a href="#用webpack来打包我们的源代码" class="headerlink" title="用webpack来打包我们的源代码"></a>用webpack来打包我们的源代码</h2><pre><code>src
+    main.js
+    App.vue
+
+webpack.develop.config.js中的配置代码
+    建议拷贝
+
+webpack --config webpack.develop.config.js
+
+手工创建index.html
+    写id=app的div
+    通过script导入bundle.js
+</code></pre><h2 id="使用html-webpack-plugin-webpack-dev-server来实现热更新"><a href="#使用html-webpack-plugin-webpack-dev-server来实现热更新" class="headerlink" title="使用html-webpack-plugin+webpack-dev-server来实现热更新"></a>使用<code>html-webpack-plugin</code>+<code>webpack-dev-server</code>来实现热更新</h2><pre><code>html-webpack-plugin：以参照文件template.html在内存中生成index.html，并且会自动导入bundle.js
+
+webpack-dev-server node开启的服务器
+webpack-dev-server --config webpack.develop.config.js --progress --port 3008 --open --hot
+</code></pre><h2 id="webpack-amp-webpack-dev-server的异同"><a href="#webpack-amp-webpack-dev-server的异同" class="headerlink" title="webpack &amp; webpack-dev-server的异同"></a>webpack &amp; webpack-dev-server的异同</h2><pre><code>同:
+    都能打包，打包的参数，webpack中有的，webpack-dev-server都有，并且还会比它多
+
+不同点:
+    应用场景
+        webpack-dev-server 开发阶段用
+        webpack 生产阶段
+
+    效果不一样
+        webpack-dev-server 开启一个node服务器，运行index.html&amp;bundle.js
+
+        webpack 只会生成bundle.js文件，自己运行还需要创建index.html，使用EaseServer来运行
+</code></pre><hr>
+<h2 id="脚手架"><a href="#脚手架" class="headerlink" title="脚手架"></a>脚手架</h2><pre><code>作用：帮我们生成项目最基本的结构，逻辑还是要自己写
+
+https://github.com/vuejs/vue-cli
+
+当你对webpack比较熟悉之后，用它比较合适
+</code></pre><h2 id="App-vue"><a href="#App-vue" class="headerlink" title="App.vue"></a>App.vue</h2><pre><code>头部
+
+中间内容
+    在html中写
+        router-link 写好跳转的路径
+        router-view 路由的占位
+
+    在js中写
+        先要把组件定义好(导入组件)
+        创建路由对象&amp;设置路由规则
+        把路由对象注入到根实例中，让整应用拥有路由的功能
+
+底部
+
+头部&amp;底部使用饿了吗的前端团队推出的基于Vue的UI库
+
+如果我们有一些组件(mint-ui)在我们项目很多地方都需要使用它，这个时候，就建议在main.js中集成
+</code></pre><h3 id="mint-ui"><a href="#mint-ui" class="headerlink" title="mint-ui"></a>mint-ui</h3><pre><code>Vue专题:
+    https://www.awesomes.cn/subject/vue#应用-框架
+
+移动端WebApp：https://mint-ui.github.io/#!/zh-cn
+PC端:http://element.eleme.io/#/zh-CN
+    https://www.iviewui.com/
+
+项目中集成mint-ui
+</code></pre><hr>
+<h2 id="home-vue"><a href="#home-vue" class="headerlink" title="home.vue"></a>home.vue</h2><h3 id="轮播图"><a href="#轮播图" class="headerlink" title="轮播图"></a>轮播图</h3><pre><code>1、请求轮播的数据
+
+2、使用轮播组件，完成轮播的功能
+</code></pre><h3 id="九宫格布局"><a href="#九宫格布局" class="headerlink" title="九宫格布局"></a>九宫格布局</h3><pre><code>mui
+参考:http://dev.dcloud.net.cn/mui/ui/
+移动端的boostrap
+
+github的地址
+    https://github.com/dcloudio/mui
+</code></pre><hr>
+<h2 id="新闻列表-amp-新闻详情"><a href="#新闻列表-amp-新闻详情" class="headerlink" title="新闻列表&amp;新闻详情"></a>新闻列表&amp;新闻详情</h2><pre><code>momentjs
+参考:
+    http://momentjs.cn/
+</code></pre><hr>
+<h2 id="安装的包"><a href="#安装的包" class="headerlink" title="安装的包"></a>安装的包</h2><pre><code>mint
+    使用的地方:
+        App.vue的头部和底部使用到它
+    安装方式
+        npm i mint-ui -S
+
+vue-router
+    使用的地方:
+        App.vue中间部分，使用路由
+    安装方式
+        npm i vue-router -S
+
+vue-resource
+    使用的地方:
+        home.vue中的轮播的时候
+    安装方式
+        npm i vue-resource -S
+
+file-loader &amp; url-loader
+    使用的地方:
+        集成mui样式的时候
+    安装方式
+        npm i file-loader url-loader --save-dev
+
+moment
+    使用的地方:
+        在新闻列表中格式化时间的时候用到
+    安装方式
+        npm i moment -S
+</code></pre><h2 id="vue-resource-2"><a href="#vue-resource-2" class="headerlink" title="vue-resource"></a>vue-resource</h2><hr>
+<h2 id="新闻详情页面"><a href="#新闻详情页面" class="headerlink" title="新闻详情页面"></a>新闻详情页面</h2><pre><code>步骤:
+    1、点击newslist.vue中每一项，跳转到newsinfo.vue，并且带上新闻newsId
+
+    2、根据newsId获取数据
+
+    3、渲染(写html+css)
+</code></pre><hr>
+<h2 id="显示隐藏返回按钮和底部TabBar"><a href="#显示隐藏返回按钮和底部TabBar" class="headerlink" title="显示隐藏返回按钮和底部TabBar"></a>显示隐藏返回按钮和底部TabBar</h2><pre><code>分析:
+    什么时机?
+        判断路由
+
+    需要解决的坎？
+        在路由变化的时候，获取路由，并且根据路由判断
+        监控路由的变化
+
+    以后工作中遇到比较复杂的业务逻辑，一定要自己把这个大的目标
+    拆解成一个一个小目标，各个击破
+
+步骤：
+    1、在App.vue中，通过watch方法来监控路由的变化
+
+    2、根据路径，来显示或是隐藏头部的返回按钮和底部的TabBar
+        v-show来显示和隐藏返回按钮
+
+
+v-if/v-show 可以达到显示&amp;隐藏我们返回按钮和底部TabBar
+
+动态绑定样式显示和隐藏底部TabBar
+    https://cn.vuejs.org/v2/guide/class-and-style.html
+</code></pre><h3 id="声明式导航-amp-编程式导航"><a href="#声明式导航-amp-编程式导航" class="headerlink" title="声明式导航&amp;编程式导航"></a>声明式导航&amp;编程式导航</h3><pre><code>声明式导航 router-link 写在html中的
+编程式导航 $router 写在js函数中的
+
+参考:https://router.vuejs.org/zh-cn/essentials/navigation.html
+</code></pre><h3 id="route-amp-router"><a href="#route-amp-router" class="headerlink" title="$route&amp;$router"></a>$route&amp;$router</h3><pre><code>$route 获取路径path、参数
+$router 动作执行者，用来进行路由导航(前进后退)
+</code></pre><hr>
+<h2 id="评论子组件"><a href="#评论子组件" class="headerlink" title="评论子组件"></a>评论子组件</h2><pre><code>评论在新闻详情&amp;图片详情&amp;商品详情中都有这个功能
+把相同功能代码写在一个组件中(subcomment.vue)，该组件帮我们完成加载对应id的评论内容和提交给对应id评论内容
+
+在需要的地方（新闻详情）把我们评论组件集成进来，并且要给他传递条件，
+剩下的事情交给（subcomment.vue）
+
+步骤:
+    1、先要创建一个子组件出来(subcomment.vue)
+
+    2、集成到父组件中去
+        2.1 在父组件中导入子组件
+        2.2 在父组件的components中注册一下
+        2.3 就可以在父组件的template中使用子组件了
+
+    3、父组件要传递值给它是使用的子组件
+        接收方:子组件
+
+        发送发:父组件
+
+    4、子组件获取到父组件传递过来的值，之后，做自己的业务逻辑
+</code></pre><h3 id="评论子组件业务逻辑"><a href="#评论子组件业务逻辑" class="headerlink" title="评论子组件业务逻辑"></a>评论子组件业务逻辑</h3><pre><code>1、搭建UI布局
+
+2、完成展示评论列表(加载更多)
+    2.1 加载第一页
+    2.2 加载更多
+
+3、完成提交评论的功能
+</code></pre><hr>
+<h2 id="图片分享"><a href="#图片分享" class="headerlink" title="图片分享"></a>图片分享</h2><h3 id="列表页面"><a href="#列表页面" class="headerlink" title="列表页面"></a>列表页面</h3><pre><code>列表分类
+    ul &gt; li
+</code></pre><h3 id="图片详情"><a href="#图片详情" class="headerlink" title="图片详情"></a>图片详情</h3><pre><code>获取数据
+渲染
+
+
+集成评论子组件，让其做事
+    1、导入subcomment.vue
+    2、在components中注册
+    3、在父组件的template中使用，并且给他传值
+
+缩略图
+    1、展示我们的缩略图
+        1.1、获取数据
+        1.2、通过九宫格布局
+
+    2、预览
+        https://github.com/LS1231/vue-preview
+
+        可以先不用管babel-loader
+</code></pre><hr>
+<h1 id="内容回顾-1"><a href="#内容回顾-1" class="headerlink" title="内容回顾"></a>内容回顾</h1><h2 id="新闻详情"><a href="#新闻详情" class="headerlink" title="新闻详情"></a>新闻详情</h2><pre><code>1、点击新闻列表里面的每一条新闻，跳转到新闻详情组件(把新闻带过去)
+    路由
+
+2、发送Ajax请求
+    vue-resource
+
+3、渲染
+    template style
+</code></pre><h2 id="显示-amp-隐藏返回按钮及TabBar"><a href="#显示-amp-隐藏返回按钮及TabBar" class="headerlink" title="显示&amp;隐藏返回按钮及TabBar"></a>显示&amp;隐藏返回按钮及TabBar</h2><pre><code>1、监控路由的变化，获取到了变化的路径
+    watch
+
+2、根据路径，显示和隐藏返回按钮和TabBar
+    v-show 动态绑定样式
+
+3、处理如果用户强制刷新
+    App.vue created
+</code></pre><h2 id="评论子组件-1"><a href="#评论子组件-1" class="headerlink" title="评论子组件"></a>评论子组件</h2><pre><code>在父组件中如何集成子组件
+    1、在父组件中导入子组件
+
+    2、在父组件的components中注册子组件
+
+    3、在父组件的template中使用子组件
+
+父组件如何传递值给子组件
+    接收方(子组件):props:[&apos;父组件传值的名称&apos;]
+
+    传递方(父组件):在template使用子组件的时候，通过属性名称=值的方式传递
+
+评论子组件中的业务逻辑
+    1、先搭建UI界面
+
+    2、加载并且展示评论列表
+
+    3、提交评论
+</code></pre><h2 id="图片列表"><a href="#图片列表" class="headerlink" title="图片列表"></a>图片列表</h2><pre><code>分类功能
+    1、加载分类的数据
+    2、渲染
+        template
+        style
+
+列表功能
+    1、监听上面的分类的点击，获取到对应的id
+
+    2、根据id去获取对应的数据
+
+    3、渲染
+        template
+        style
+</code></pre><h2 id="图片详情-1"><a href="#图片详情-1" class="headerlink" title="图片详情"></a>图片详情</h2><pre><code>1、点击图片列表的某一项，跳转到图片详情组件，并且带过来图片id
+
+2、发送网络请求，获取数据
+
+3、渲染
+        template
+        style
+
+4、集成评论子组件，并且给其传递值
+
+5、完成缩略图功能
+    5.1、在图片详情页面中展现出来
+        5.1.1、获取缩略图的数据
+            vue-resource
+
+        5.1.2、渲染出来
+            template ---&gt; mui代码
+            style ---&gt; mui样式
+
+    5.2、完成图片的预览功能
+        5.2.1、安装vue-preview这个第三方包
+
+        5.2.2、集成到项目中
+
+        5.2.3、在需要的地方使用(图片详情)
+</code></pre><hr>
+<h1 id="课程目标"><a href="#课程目标" class="headerlink" title="课程目标"></a>课程目标</h1><h2 id="完成图片详情中缩略的预览"><a href="#完成图片详情中缩略的预览" class="headerlink" title="完成图片详情中缩略的预览"></a>完成图片详情中缩略的预览</h2><pre><code>1、在图片详情页面中展现出来
+    1.1、获取缩略图的数据
+        vue-resource
+
+    1.2、渲染出来
+        template ---&gt; mui代码
+        style ---&gt; mui样式
+
+2、完成图片的预览功能
+    2.1、安装vue-preview这个第三方包
+
+    2.2、集成到项目中
+
+    2.3、在需要的地方使用(图片详情)
+        看文档
+</code></pre><h3 id="vue-preview"><a href="#vue-preview" class="headerlink" title="vue-preview"></a>vue-preview</h3><pre><code>基于Vue对photoswipe封装
+
+photoswiper:
+    https://github.com/dimsemenov/PhotoSwipe
+    http://photoswipe.com/
+
+如何使用:
+    http://photoswipe.com/documentation/getting-started.html
+</code></pre><hr>
+<h2 id="商品列表"><a href="#商品列表" class="headerlink" title="商品列表"></a>商品列表</h2><pre><code>1、点击home.vue中的商品购买按钮，跳转到goodslist.vue
+
+2、获取商品列表数据
+
+3、渲染
+</code></pre><hr>
+<h2 id="商品详情"><a href="#商品详情" class="headerlink" title="商品详情"></a>商品详情</h2><pre><code>1、点击商品列表，跳转到商品详情中去，并且把goodsId带过去
+
+2、完成轮播子组件的抽取
+    2.1、先单独创建一个轮播的子组件
+
+    2.2、在父组件(home.vue、goodsinfo.vue)中集成进来
+
+    2.3、在父组件中给子组件传递url过去即可
+        接收方: props
+        传递方: 属性名称=值
+
+    2.4、子组件在内部处理业务逻辑
+
+3、完成展示商品详情信息
+
+4、完成图文介绍和商品评论
+
+5、子组件如何传值给父组件
+</code></pre><h3 id="声明式-amp-编程式"><a href="#声明式-amp-编程式" class="headerlink" title="声明式&amp;编程式"></a>声明式&amp;编程式</h3><pre><code>声明式 router-link template中
+编程式 $router script
+
+以后凡是看到 ?xxx=xxx query传参
+            xxx/xxx params传参
+</code></pre><h3 id="子组件如何传值给父组件"><a href="#子组件如何传值给父组件" class="headerlink" title="子组件如何传值给父组件"></a>子组件如何传值给父组件</h3><pre><code>参考:https://cn.vuejs.org/v2/guide/components.html#自定义事件
+
+接收方(父组件):
+    在使用子组件的时候，直接用 v-on 来监听子组件触发的事件，并且在父组件的methods中写好处理函数
+
+发送方(子组件):通过触发自定义事件的方式来传递值
+    this.$emit(&apos;自定义事件名称&apos;,值)
+
+注意事项:
+    1、我们自定义事件的时候，名字不要和系统的冲突了，比如不要定义成click dbclick
+    2、本身代码不难，关键要理解
+</code></pre><hr>
+<h2 id="生命周期函数"><a href="#生命周期函数" class="headerlink" title="生命周期函数"></a>生命周期函数</h2><pre><code>面试题:
+    Vue中组件生命周期钩子有何作用
+
+Vue生命周期钩子(函数)
+    created 发送网络请求
+
+使用场景:
+    如何判断用户对哪个界面比较喜欢?
+        次数，逗留的时间
+        当我们在组件的created 记录一个时间
+        在组件的destory中记录一个时间
+
+        把刚刚的停留事件和哪个页面一起发给服务器
+
+    记录用户上次浏览的状态    
+
+    当用户填写了很多信息，不小心返回了(destory)，我们可以把它刚刚填写的信息，保存到本地，下次进来时候(created)中读取本地内容，自动填充上
+
+注意点:
+    Vue中的这些生命周期钩子，是Vue框架内部提供的，只要你实现了那些方法，Vue框架就会在每个组件从出生到销毁的时候，调用这一系列的方法
+
+每个人的生命周期
+    出生 --&gt; 小学 ---&gt; 初中 ---&gt; 高中 ---&gt; 大学 ---&gt; 黑马 ---&gt; 程序员 ---&gt; CTO ---&gt; 结婚 ---&gt; 生娃 ---&gt; 幸福的生活 ---&gt; 挂
+</code></pre><hr>
+<h1 id="内容回顾-2"><a href="#内容回顾-2" class="headerlink" title="内容回顾"></a>内容回顾</h1><h2 id="Vue-Preview"><a href="#Vue-Preview" class="headerlink" title="Vue-Preview"></a>Vue-Preview</h2><pre><code>先对比 template中的代码
+再对比数据
+</code></pre><h2 id="商品列表-1"><a href="#商品列表-1" class="headerlink" title="商品列表"></a>商品列表</h2><pre><code>mui的图文表格
+</code></pre><h2 id="商品详情-1"><a href="#商品详情-1" class="headerlink" title="商品详情"></a>商品详情</h2><pre><code>抽离轮播图 
+编程式导航的两种写法
+    router.push(name/path,params/query)
+子组件传值给父组件
+生命周期(Vue组件/Vue实例)
+</code></pre><h2 id="生命周期函数-钩子"><a href="#生命周期函数-钩子" class="headerlink" title="生命周期函数(钩子)"></a>生命周期函数(钩子)</h2><pre><code>1、是Vue框架提供并且调用的
+2、我们程序员只需要实现即可，Vue框架会自动调用
+
+生命周期钩子的使用场景
+    created 发送网络请求
+
+    created destoryed
+        统计用户喜欢哪个组件 1min
+
+    destoryed 
+        记录用户浏览器的记录
+        把用户的一些重要信息保存起来
+</code></pre><hr>
+<h1 id="今日课程目标"><a href="#今日课程目标" class="headerlink" title="今日课程目标"></a>今日课程目标</h1><h2 id="非父子组件之间传值"><a href="#非父子组件之间传值" class="headerlink" title="非父子组件之间传值"></a>非父子组件之间传值</h2><pre><code>什么情况下才构成父子组件关系
+只有通过components注册的，才能成为父子关系
+
+需求:
+    在goodsinfo.vue中点击了加入购物车，把该数字传递到App.vue，再显示出来
+
+步骤:
+    1、点击goodsinfo.vue加入购物车，
+
+发送方(goodsinfo.vue)    
+    bus.$emit
+
+接收方(App.vue)
+    bus.$on
+</code></pre><h3 id="非父子组件和父子组件，传值时候的区别"><a href="#非父子组件和父子组件，传值时候的区别" class="headerlink" title="非父子组件和父子组件，传值时候的区别"></a>非父子组件和父子组件，传值时候的区别</h3><pre><code>父子组件中，子组件传递个父组件可以通过 `this`
+
+非父子组件，只能靠同一个Vue实例传递值
+</code></pre><hr>
+<h2 id="Vuex"><a href="#Vuex" class="headerlink" title="Vuex"></a>Vuex</h2><pre><code>在各自组件之间进行数据的共享，专门用来给Vue进行全局数据管理的
+
+不同于window
+
+状态===数据
+
+概念:
+    https://vuex.vuejs.org/zh-cn/intro.html
+</code></pre><h3 id="什么时候用Vuex"><a href="#什么时候用Vuex" class="headerlink" title="什么时候用Vuex"></a>什么时候用Vuex</h3><pre><code>https://vuex.vuejs.org/zh-cn/intro.html
+</code></pre><h3 id="Vuex核心概念"><a href="#Vuex核心概念" class="headerlink" title="Vuex核心概念"></a>Vuex核心概念</h3><pre><code>state:数据，里面是键值对
+getter:获取数据用的，里面是函数
+mutations:同步的保存或是更新仓库中的数据，里面也是函数
+action:异步的保存或是更新仓库中的数据，里面也是函数
+
+
+module:代表可以拥有多个仓库
+
+注意:
+    1、state、getter、mutations、action、module都是一个对象
+
+    2、state、module对象里面写的是键值对
+
+    3、getter、mutations、action对象里面写的是函数
+
+    4、一般在做耗时操作的时候，使用actions，如果不是耗时的任务使用mutations即可
+
+    5、getter和mutations函数中的第一个参数必须是state
+
+    6、getter必须要有返回值(return)，调用的时候不要加`()`
+
+    7、mutations调用的时候用$store.commit
+
+    8、actions调用的时候用的是$store.dispatch
+</code></pre><h3 id="代码的步骤"><a href="#代码的步骤" class="headerlink" title="代码的步骤"></a>代码的步骤</h3><pre><code>1、在当前项目中集成Vuex
+    安装包
+    导入并且use
+
+2、创建仓库并且将我们的仓库注入到项目的根实例中，让我们项目拥有Vuex的功能
+    参考:https://vuex.vuejs.org/zh-cn/getting-started.html
+
+
+思考
+    加入购物车的时候，需要存储商品的哪些信息
+        goodsId
+        数量
+        {goodsId:&quot;87&quot;,count:3}
+</code></pre><hr>
+<h2 id="在购物车中获取数据"><a href="#在购物车中获取数据" class="headerlink" title="在购物车中获取数据"></a>在购物车中获取数据</h2><pre><code>this.$store.getters.getGoodsList
+</code></pre><hr>
+<h2 id="主流电商购物车数据的存储"><a href="#主流电商购物车数据的存储" class="headerlink" title="主流电商购物车数据的存储"></a>主流电商购物车数据的存储</h2><pre><code>Vuex是把数据放在内存中的，不太适合保存购物车的数据
+
+京东:
+    未登录
+        浏览的cookies
+
+    已登录
+        保存到服务器
+
+淘宝:
+    服务器
+
+
+cookies:(浏览器本地)
+    优点:
+        减少服务器压力，节省服务器资源  1K  1000万
+
+    缺点:
+        容易丢失用户某次的购买行为
+
+服务器端:
+    优点:
+        不会丢失用户加入购物车中的商品
+        更加利于分析用户的购买行为，给用户推荐，促进更多的交易
+
+    缺点:
+        增加服务器压力，增加服务器的存储空间
+</code></pre><hr>
+<h2 id="今天安装的包"><a href="#今天安装的包" class="headerlink" title="今天安装的包"></a>今天安装的包</h2><pre><code>vuex
+    在哪里用?
+        项目中需要集成vuex功能的时候
+
+    安装方式
+        npm install vuex --save
+</code></pre><h2 id="项目的周期要做多久"><a href="#项目的周期要做多久" class="headerlink" title="项目的周期要做多久?"></a>项目的周期要做多久?</h2><pre><code>不好说
+</code></pre><h2 id="项目的某个版本，从立项到上线会经历哪几个阶段，哪些人参与，会出哪些成果"><a href="#项目的某个版本，从立项到上线会经历哪几个阶段，哪些人参与，会出哪些成果" class="headerlink" title="项目的某个版本，从立项到上线会经历哪几个阶段，哪些人参与，会出哪些成果"></a>项目的某个版本，从立项到上线会经历哪几个阶段，哪些人参与，会出哪些成果</h2><pre><code>需求调研阶段
+    功能
+
+    外包:客户 通过邮件确认
+
+    做自家的产品 mobike
+        PM 产品经理 张晓龙
+        QQ 微信
+
+        摇一摇
+        附近的人
+        轻量级
+        朋友圈 封闭的系统
+
+        天使轮 ---&gt; A轮 ---&gt; B ---&gt; C ---&gt; 40亿美金 ---&gt; 上市
+
+    出的成果:
+        需求文档，辅助开发人员开发
+
+原型设计阶段
+    产品经理 axure
+        原型图/交互图
+
+    美工MM
+        效果图/标注图
+        切图
+
+编码阶段
+    预估工期
+
+        1+1+2+1+3+2
+
+        3~4
+
+    联调
+        1~2
+
+    编码
+        工作日志
+        站会
+
+    适当求助
+
+测试阶段
+    测试MM
+
+    回归测试
+
+上线阶段
+    打包，上线
+
+
+
+
+    # 内容回顾
+</code></pre><h2 id="生命周期钩子-函数"><a href="#生命周期钩子-函数" class="headerlink" title="生命周期钩子(函数)"></a>生命周期钩子(函数)</h2><pre><code>beforeCreate
+created
+beforeMount
+mounted
+beforeUpdate(可能会调用多次)
+updated(可能会调用多次)
+beforeDestory
+destoryed
+
+你实现了，就会自动调用
+
+created 发送网络请求
+
+created destoryed 知道用户的偏好
+
+destoryed 记录用户浏览记录
+
+destoryed 记录用户填写信息
+</code></pre><h2 id="编程式导航的几种写法"><a href="#编程式导航的几种写法" class="headerlink" title="编程式导航的几种写法"></a>编程式导航的几种写法</h2><pre><code>js函数中要进行导航
+
+this.$router.go(-1)
+this.$router.push(name/path,params/query)
+</code></pre><h2 id="Vuex-1"><a href="#Vuex-1" class="headerlink" title="Vuex"></a>Vuex</h2><pre><code>作用:Vue项目中全局数据管理
+
+state  对象里面方的是键值对
+getter 函数 返回东西给组件去用
+mutations 函数 同步
+action 函数 异步
+
+内存存储
+</code></pre><h2 id="主流电商购物车数据存储方案"><a href="#主流电商购物车数据存储方案" class="headerlink" title="主流电商购物车数据存储方案"></a>主流电商购物车数据存储方案</h2><pre><code>本地 
+    cookie
+    localStorage
+
+服务器
+</code></pre><h2 id="项目某个版本的开发流程"><a href="#项目某个版本的开发流程" class="headerlink" title="项目某个版本的开发流程"></a>项目某个版本的开发流程</h2><pre><code>需求调研阶段
+原型设计阶段
+编码阶段
+测试阶段
+上线阶段
+</code></pre><hr>
+<h1 id="购物车中数据存储的方式"><a href="#购物车中数据存储的方式" class="headerlink" title="购物车中数据存储的方式"></a>购物车中数据存储的方式</h1><pre><code>购物车数组:
+    [{goodsId:&quot;87&quot;,count:2},{goodsId:&quot;88&quot;,count:3},{goodsId:&quot;87&quot;,count:3}]
+
+    上面的这个数据，既要方便我们发送网络请求时候用，又要方便将来展现的时候，合并我们的数量
+
+
+首先我们要做到的事情是什么?
+    1、把里面id取出来，将来去发送网络请求用
+
+    2、把服务器返回的商品的信息(价格、名称、缩略图)呈现在购物车组件里面
+
+http://vue.studyit.io/api/goods/getshopcarlist/87,88
+</code></pre><h2 id="购物车中原始数据变化的一个过程"><a href="#购物车中原始数据变化的一个过程" class="headerlink" title="购物车中原始数据变化的一个过程"></a>购物车中原始数据变化的一个过程</h2><pre><code>对象 for in
+数组 forEach
+
+1、
+    [{goodsId:&quot;87&quot;,count:2},{goodsId:&quot;88&quot;,count:3},{goodsId:&quot;87&quot;,count:3}]
+
+2、
+    var tempObj = {
+        &quot;87&quot;:5,
+        &quot;88&quot;:3
+    }
+
+3、[&quot;87&quot;,&quot;88&quot;]
+
+4、数组的join方法 `87,88`
+</code></pre><h2 id="我们的购物车组件中商品每一项Switch绑定的同一个模型解决办法分析"><a href="#我们的购物车组件中商品每一项Switch绑定的同一个模型解决办法分析" class="headerlink" title="我们的购物车组件中商品每一项Switch绑定的同一个模型解决办法分析"></a>我们的购物车组件中商品每一项Switch绑定的同一个模型解决办法分析</h2><pre><code>分开绑定???
+
+1、自己新建一个数组 switchValues 里面装对应个数的boolean值
+
+2、巧妙的借助response.body.message这个数组【推荐】
+</code></pre><h2 id="购物车展示还需要做的事情"><a href="#购物车展示还需要做的事情" class="headerlink" title="购物车展示还需要做的事情"></a>购物车展示还需要做的事情</h2><pre><code>1、开关变化之后
+    统计我们付款信息
+    更改对应行的按钮的状体
+
+2、当我们删除了某个商品之后
+    重新计算付款信息
+    Vuex 中的数据要更改
+    页面上看到的内容就是剩余的
+        删除掉该条数据
+</code></pre><h1 id="内容回顾-3"><a href="#内容回顾-3" class="headerlink" title="内容回顾"></a>内容回顾</h1><hr>
+<h1 id="今日课程内容"><a href="#今日课程内容" class="headerlink" title="今日课程内容"></a>今日课程内容</h1><h2 id="axios"><a href="#axios" class="headerlink" title="axios"></a>axios</h2><pre><code>地址:
+    https://www.awesomes.cn/repo/axios/axios
+    https://github.com/axios/axios
+
+jsonp
+    https://github.com/axios/axios/blob/master/COOKBOOK.md
+</code></pre><hr>
+<h2 id="支付宝"><a href="#支付宝" class="headerlink" title="支付宝"></a>支付宝</h2><h3 id="第一个阶段：前提"><a href="#第一个阶段：前提" class="headerlink" title="第一个阶段：前提"></a>第一个阶段：前提</h3><pre><code>和支付宝签约成为其合作商户
+
+老板/财务 : 营业执照、纳税证明去支付宝开放平台成为支付宝的合作商户 2088311465207164 美团网
+      2088113211232132 你们公司的支付宝的商户id
+
+https://open.alipay.com/
+手机网站支付:https://docs.open.alipay.com/203
+</code></pre><h3 id="第二个阶段-根据商户id-2088311465207164-生成私钥和公钥"><a href="#第二个阶段-根据商户id-2088311465207164-生成私钥和公钥" class="headerlink" title="第二个阶段:根据商户id(2088311465207164)生成私钥和公钥"></a>第二个阶段:根据商户id(2088311465207164)生成私钥和公钥</h3><pre><code>2088311465207164 ---&gt; java/php/.net
+
+技术经理来做
+
+生成公钥和私有是使用RSA
+https://help.alipay.com/support/help_detail.htm?help_id=397433
+
+RSA 一对公钥和私钥
+    公钥加密  ---&gt; 对应的私钥解密
+    私钥加密  ---&gt; 对应的公钥解密
+</code></pre><h3 id="第三个阶段-上传公钥到支付宝后台-amp-把私钥放在美团服务器"><a href="#第三个阶段-上传公钥到支付宝后台-amp-把私钥放在美团服务器" class="headerlink" title="第三个阶段:上传公钥到支付宝后台 &amp; 把私钥放在美团服务器"></a>第三个阶段:上传公钥到支付宝后台 &amp; 把私钥放在美团服务器</h3><pre><code>技术经理来做
+
+将来我们发送请求
+    https://mclient.alipay.com/home/exterfaceAssign.htm?alipay_exterface_invoke_assign_client_ip=14.30.114.229&amp;body=%E7%BE%8E%E5%9B%A2%E8%AE%A2%E5%8D%95-131382829158451508900908&amp;subject=%E7%BE%8E%E5%9B%A2%E8%AE%A2%E5%8D%95-131382829158451508900908&amp;sign_type=RSA&amp;notify_url=http%3A%2F%2F10.53.86.13%3A8966%2Fpaygate%2Fnotify%2Falipay%2Fpaynotify%2Fwap&amp;out_trade_no=131382829158451508900908&amp;return_url=http%3A%2F%2Fmeishi.meituan.com%2Fi%2Forder%2Fresult%2F4013382745&amp;sign=kofaXOVeeH5A0xx%2BEnyzMrD1aPsi0D0%2BYqhXhUojvsJnOb%2FnndCgKYH5sdPRXmL6oksgBwGGuJOxecfzP%2BdThT7ewMWFO2wbTbevfAxOqTPwE5JylkjG4clKBwJuLmavF2fiBDiEE6DjYQ0kia%2B2mKjE6LkO%2Ftgz%2FFYnjXFyI5A%3D&amp;_input_charset=utf-8&amp;enable_paymethod=balance%2CcreditCardExpress%2CdebitCardExpress%2CmoneyFund&amp;it_b_pay=1440m&amp;alipay_exterface_invoke_assign_target=mapi_direct_trade.htm&amp;alipay_exterface_invoke_assign_model=cashier&amp;total_fee=9.5&amp;service=alipay.wap.create.direct.pay.by.user&amp;seller_id=2088311465207164&amp;partner=2088311465207164&amp;alipay_exterface_invoke_assign_sign=_b9_jwdnwqsj_i_rz_js_algh_l7v_o_n_cp_fu_i_o1_vp_yx_afz2vn5_tbc_ilj_pph_w1_q%3D%3D&amp;payment_type=1
+
+给支付宝让其扣用户的钱，达到我们公司账户的时候，支付宝要验证
+</code></pre><h3 id="第四阶段，写代码-前端、后台一起参数"><a href="#第四阶段，写代码-前端、后台一起参数" class="headerlink" title="第四阶段，写代码(前端、后台一起参数)"></a>第四阶段，写代码(前端、后台一起参数)</h3><pre><code>1、用户挑选了商品
+
+【前端】2、用户点击了提交订单，前端发送请求给后台
+
+3、后台接收到下订单的请求之后，第一在后台的数据库中生成一张订单（现在这个订单的状态是未支付），第二，通过状态码，让页面跳转到选择支付的页面上去
+
+【前端】3、用户点击了确认支付，发送请求给后台（把用户选择支付的平台信息，传递给美团服务器）
+
+4、后台接收到用户想通过支付宝支付，从服务器中取出私钥，对我们那个订单的信息(正新鸡排)，进行加密，在后台生成一个url https://mclient.alipay.com/home/exterfaceAssign.htm?alipay_exterface_invoke_assign_client_ip=14.30.114.229&amp;body=%E7%BE%8E%E5%9B%A2%E8%AE%A2%E5%8D%95-131382829158451508900908&amp;subject=%E7%BE%8E%E5%9B%A2%E8%AE%A2%E5%8D%95-131382829158451508900908&amp;sign_type=RSA&amp;notify_url=http%3A%2F%2F10.53.86.13%3A8966%2Fpaygate%2Fnotify%2Falipay%2Fpaynotify%2Fwap&amp;out_trade_no=131382829158451508900908&amp;return_url=http%3A%2F%2Fmeishi.meituan.com%2Fi%2Forder%2Fresult%2F4013382745&amp;sign=kofaXOVeeH5A0xx%2BEnyzMrD1aPsi0D0%2BYqhXhUojvsJnOb%2FnndCgKYH5sdPRXmL6oksgBwGGuJOxecfzP%2BdThT7ewMWFO2wbTbevfAxOqTPwE5JylkjG4clKBwJuLmavF2fiBDiEE6DjYQ0kia%2B2mKjE6LkO%2Ftgz%2FFYnjXFyI5A%3D&amp;_input_charset=utf-8&amp;enable_paymethod=balance%2CcreditCardExpress%2CdebitCardExpress%2CmoneyFund&amp;it_b_pay=1440m&amp;alipay_exterface_invoke_assign_target=mapi_direct_trade.htm&amp;alipay_exterface_invoke_assign_model=cashier&amp;total_fee=9.5&amp;service=alipay.wap.create.direct.pay.by.user&amp;seller_id=2088311465207164&amp;partner=2088311465207164&amp;alipay_exterface_invoke_assign_sign=_b9_jwdnwqsj_i_rz_js_algh_l7v_o_n_cp_fu_i_o1_vp_yx_afz2vn5_tbc_ilj_pph_w1_q%3D%3D&amp;payment_type=1，返回给浏览器
+
+【前端】5、通过window.location.href = &apos;xxx&apos;，打开后台返回的那个很长的url
+
+6、用户和支付宝交互，用户输入了用户名和之后，支付宝平台就会扣买的那个用户的钱，把钱打给美团
+
+7、当此笔交易成功之后，支付宝平台会调用美团的一个接口，美团后台服务器才会把我们那个订单的状态设置为已支付
+    alipay.com
+</code></pre><h3 id="体验下美团的支付流程"><a href="#体验下美团的支付流程" class="headerlink" title="体验下美团的支付流程"></a>体验下美团的支付流程</h3><pre><code>1、立即购买
+    发送请求给美团服务器，在服务器端生成一张订单
+
+2、
+</code></pre><hr>
+<h2 id="webpack打包上线"><a href="#webpack打包上线" class="headerlink" title="webpack打包上线"></a>webpack打包上线</h2><h3 id="先不经过优化打包"><a href="#先不经过优化打包" class="headerlink" title="先不经过优化打包"></a>先不经过优化打包</h3><pre><code>webpack.production.config.js
+
+这个文件是生产阶段专用的，他其实就是在webpack.develop.config.js的基础上增加一些符合生产环境打包的配置代码
+
+生产阶段使用 webpack打包，因为webpack会生成实实在在的物理文件
+
+html-webpack-plugin
+    开发阶段，以某个文件为参照，在内存中生成一个index.html，并且还会自动导入bundle.js
+
+    生产阶段，以某个文件为参照，生成一个实实在在的index.html，并且还会自动导入bundle.js
+</code></pre><h3 id="优化步骤1："><a href="#优化步骤1：" class="headerlink" title="优化步骤1："></a>优化步骤1：</h3><pre><code>压缩 js 未压缩之前 1.66M
+压缩 html 未压缩之前 353bytes
+</code></pre><h4 id="压缩js"><a href="#压缩js" class="headerlink" title="压缩js"></a>压缩js</h4><pre><code>参考:
+    https://cn.vuejs.org/v2/guide/deployment.html
+
+1、压缩js之前，必须先用 `babel` 把项目中使用到的es6的代码转成es5的代码
+    参考:webpack中如何集成 https://babeljs.io/docs/setup/#installation
+
+    1.1 安装三个 cnpm i babel-core babel-loader babel-preset-env --save-dev        
+    1.2 在webpack配置文件的loader中添加一个loader
+
+2、配置vue-preview，这个比较特殊，需要特殊处理一下
+    {
+        test: /vue-preview.src.*?js$/,//vue-preview要额外处理一下
+        loader: &apos;babel-loader&apos;
+    }
+
+ 3、在插件中写上我们的压缩代码
+     new webpack.DefinePlugin({
+        &apos;process.env&apos;: {
+          NODE_ENV: &apos;&quot;production&quot;&apos; //设置为生产环境
+        }
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+        compress: {
+            warnings: false//干掉警告
+        },
+        comments: false //去掉版权信息等注释
+    })
+</code></pre><h4 id="压缩html"><a href="#压缩html" class="headerlink" title="压缩html"></a>压缩html</h4><pre><code>参考:https://github.com/jantimon/html-webpack-plugin   搜索minify
+
+参考:https://github.com/kangax/html-minifier#options-quick-reference
+
+new HtmlWebpackPlugin({
+    template:&apos;./template.html&apos;,
+    filename: &apos;index.html&apos;,
+    minify:{
+        collapseWhitespace:true, //去除空格
+        minifyCSS:true,//压缩css
+        minifyJS:true,//压缩js
+        removeComments:true//去掉注释
+    }
+})
+</code></pre><hr>
+<h2 id="webpack性能优化之拆分bundle-js"><a href="#webpack性能优化之拆分bundle-js" class="headerlink" title="webpack性能优化之拆分bundle.js"></a>webpack性能优化之拆分bundle.js</h2><pre><code>思考:
+    我们的bundle.js为何这么大?
+        图片
+        第三方包
+        css
+
+    bundle.js只有我们自己写的代码
+</code></pre><h3 id="把我们的图片从bundle-js中抽出来"><a href="#把我们的图片从bundle-js中抽出来" class="headerlink" title="把我们的图片从bundle.js中抽出来"></a>把我们的图片从bundle.js中抽出来</h3><pre><code>图片 loader
+    loader: &apos;url-loader?limit=4000&amp;name=fonts/[name]-[hash:5].[ext]&apos;
+
+看webpack.production.config.js的代码
+</code></pre><h3 id="把我们项目中用到的第三方包从bundle-js中抽离"><a href="#把我们项目中用到的第三方包从bundle-js中抽离" class="headerlink" title="把我们项目中用到的第三方包从bundle.js中抽离"></a>把我们项目中用到的第三方包从bundle.js中抽离</h3><pre><code>改入口
+    entry:{
+       //属性名称是以后生成的js的名称，值是第三包的名称
+       mintUi:[&apos;mint-ui&apos;],
+       moment:[&apos;moment&apos;],
+       quanjitong:[&apos;vue&apos;,&apos;vue-router&apos;,&apos;vuex&apos;],
+       vueResource:[&apos;vue-resource&apos;],
+       vuePreview:[&apos;vue-preview&apos;],
+       bundle:&apos;./src/main.js&apos; 
+    }
+    改成对象的形式
+
+改输出
+    output:{ //输出文件
+        path:path.join(__dirname,&apos;dist&apos;),
+        filename:&apos;js/[name].js&apos;
+    }
+
+在plugins配置一下
+    参考：
+    new webpack.optimize.CommonsChunkPlugin({name:[&quot;vuePreview&quot;,&quot;moment&quot;,&quot;vueResource&quot;,&quot;quanjiatong&quot;,&quot;mintUi&quot;],minChunks: Infinity})
+</code></pre><h3 id="从bundle-js中抽离css"><a href="#从bundle-js中抽离css" class="headerlink" title="从bundle.js中抽离css"></a>从bundle.js中抽离css</h3><pre><code>参考:
+    https://github.com/webpack-contrib/extract-text-webpack-plugin
+</code></pre><h3 id="针对Vue你是用vue-router，可以进行路由懒加载"><a href="#针对Vue你是用vue-router，可以进行路由懒加载" class="headerlink" title="针对Vue你是用vue-router，可以进行路由懒加载"></a>针对Vue你是用vue-router，可以进行路由懒加载</h3><pre><code>参考:https://router.vuejs.org/zh-cn/advanced/lazy-loading.html
+
+步骤:
+    1、安装包
+        syntax-dynamic-import 
+
+    2、配置.babelrc
+
+    3、修改我们引入组件的方式
+</code></pre><h3 id="补充打包之前删除dist目录的插件"><a href="#补充打包之前删除dist目录的插件" class="headerlink" title="补充打包之前删除dist目录的插件"></a>补充打包之前删除dist目录的插件</h3><pre><code>clean-webpack-plugin
+</code></pre><hr>
+<h1 id="Vue数据的双向绑定原理"><a href="#Vue数据的双向绑定原理" class="headerlink" title="Vue数据的双向绑定原理"></a>Vue数据的双向绑定原理</h1><pre><code>数据 ---&gt; 视图
+    数据劫持 Objece.defaultProperty
+    正则表达式  搜索页面中的v-xxx指令 和 data中的属性建立对应关系
+
+    发布订阅者模式 将建立好关系的内容，放入数组中，当我们的data中的值，真正发生更改的时候，通过数组中对应的对应关系，更新和data属性关联的dom元素值
+
+视图 ---&gt; 数据 ---&gt; 视图
+</code></pre><hr>
+<h3 id="微信"><a href="#微信" class="headerlink" title="微信"></a>微信</h3><pre><code>微信订阅号
+</code></pre><hr>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2016/02/17/http服务&amp;ajax编程/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                http&amp;ajax
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2016/01/17/正则表达式/">
+                正则表达式
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="Search" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="Search" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <span>有幸遇见</span>
+    
+    
+    <a title="再牛逼的梦想也抵不住傻逼似得坚持">再牛逼的梦想也抵不住傻逼似得坚持</a>
+    
+    <div class="count">
+        <a class="count articles"><span>8</span>Article</a>
+        <a class="count tags"><span>0</span>Tags</a>
+        <a class="count categories"><span>0</span>Categories</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: 'Open Lyrics',
+            close: 'Close Lyrics'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>Recent Posts</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            <div class="normal">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/03/05/generator函数/" title="generator函数">generator函数</a>
+                </p>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/02/17/react/" title="react的学习">react的学习</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/02/05/bower的使用/" title="bower的使用">bower的使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/08/05/gulp的简单使用/" title="gulp的简单使用">gulp的简单使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/02/17/http服务&amp;ajax编程/" title="http&amp;ajax">http&amp;ajax</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/text-shadowForlove" target="_blank">GitHub</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>Friend Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 有幸遇见
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>

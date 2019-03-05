@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta name="author" content="有幸遇见">
+    
+    <meta name="description" content="再牛逼的梦想也抵不住傻逼似得坚持">
+    
+    
+    
+    
+    
+    
+    <title>http&amp;ajax | Hexo</title>
+    <!-- inject:style -->
+    <link href="/css/style.css" rel="stylesheet" type="text/css">
+    <!-- endinject -->
+    <style>
+        .cube-loading {
+            top: 0;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            background: url('/images/lg/loading.gif') no-repeat center center;
+            background-color: rgba(0,0,0,.7);
+        }
+
+        .cube-loading.out {
+            display: none;
+        }
+
+        .cube-loading:before {
+            display: block;
+            content: 'Loading';
+            position: relative;
+            width: 100%;
+            top: 50%;
+            right: -50%;
+            color: #fff;
+        }
+
+        @media(max-width: 768px) {
+            .cube-loading:before {
+                font-size: 1.2em;
+                transform: translate(-24px,20px);
+                -webkit-transform: translate(-24px,20px);
+                -o-transform: translate(-24px,20px);
+                -ms-transform: translate(-24px,20px);
+            }
+        }
+
+        @media(min-width: 768px) {
+            .cube-loading:before {
+
+            }
+        }
+    </style>
+    
+</head></html>
+<body>
+<div class="cube-body">
+    <nav id="cube-top-memu" class="cube-menu">
+    <ul class="cube-menu-collapse">
+        
+        <li>
+            <i class="cube-icon cube-icon-home" aria-hidden="true"></i>
+            <a href="/">首页</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-archive" aria-hidden="true"></i>
+            <a href="/archives">归档</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-categories" aria-hidden="true"></i>
+            <a href="/categories">分类</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-tags" aria-hidden="true"></i>
+            <a href="/tags">标签</a>
+        </li>
+        
+        <li>
+            <i class="cube-icon cube-icon-about" aria-hidden="true"></i>
+            <a href="/about-me">关于我</a>
+        </li>
+        
+    </ul>
+</nav>
+<nav class="cube-side-menu" id="cube-side-menu">
+    <ul class="cube-menu-list">
+        
+        <li>
+            <a class="lrc-control">Open Lyrics</a>
+        </li>
+        
+        <li>
+            <a class="scroll-to-top">Top</a>
+        </li>
+    </ul>
+</nav>
+    <header class="cube-header" id="cube-header">
+    <img src=" http://cube-1252774894.cosgz.myqcloud.com/background.png " alt="头部背景图片">
+    
+    <div class="cube-type">
+        <span class="cube-typed-title">Once you つ Now I</span>
+        <span class="cube-typed-cursor">|</span>
+    </div>
+    
+</header>
+
+    <style>
+        nav.cube-menu:before {
+            content: '';
+            visibility: hidden;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 44px;
+        
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+        
+            z-index: -1;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-repeat: no-repeat;
+            background-position: center -356px;
+            background-size: cover;
+            background-color: transparent;
+        }
+
+        header.cube-background.cube-header-background {
+            visibility: hidden;
+            background-image: url('http://cube-1252774894.cosgz.myqcloud.com/background.png');
+            background-position: center -400px;
+        }
+    </style>
+    <header class="cube-background cube-header-background">
+        
+        <div class="cube-type">
+            <span class="cube-typed-title">Once you つ Now I</span>
+            <span class="cube-typed-cursor">|</span>
+        </div>
+        
+    </header>
+    <div class="load-header-background"></div>
+    <script>
+        (function (window) {
+
+            window.headerModule = {}
+            window.headerModule.image = {
+                width: '2000',
+                height: '1414'
+            }
+
+        })(window)
+    </script>
+    
+    <div class="cube-content">
+        <div class="cube-left">
+            <div class="cube-article">
+    <h1 class="title">http&amp;ajax</h1>
+    
+    <div class="cube-article-header">
+        <div class="cube-article-date">
+            <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
+            <!-- moment.js对象 -->
+            2016-02-17
+        </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+</div>
+    </div>
+    
+    <div class="cube-article-content cube-markdown">
+        
+        <pre>
+
+
+<p>HTTP服务&amp;AJAX编程<br>                  目录<br>目录    2<br>第1章 服务器    5</p>
+<ol>
+<li>服务器类型    5</li>
+<li>服务器软件    5</li>
+<li>HTTP服务器    6<br>第2章 客户端    6<br>第3章 网络基础    7<br>3.1    IP地址    7<br>3.2    域名    7<br>3.3    DNS服务    7<br>3.4    端口    7<br>第4章 C/S和B/S    8<br>4.1    C/S结构    8<br>4.2    B/S结构    9<br>第5章 搭建HTTP服务    9<br>5.1    安装WampServer    9<br>5.2    管理HTTP服务    9<br>5.3    配置根目录    11<br>5.4    网站部署    12<br>5.5    配置虚拟主机    12<br>第6章 PHP基础    13<br>6.1    变量    14<br>6.2    数据类型    14<br>6.3    内容输出    14<br>6.4    运算符    14<br>6.5    函数    15<br>6.6    分支、循环语句    15<br>6.7    文件引入（待定）    15<br>6.8    表单处理    15<br>6.9    常用PHP函数    16<br>6.10    应用实例    16<br>第7章 网络传输协议    16<br>7.1    常见协议    16<br>7.2    HTTP协议    17<br>7.2.1    请求/请求报文    17<br>7.2.2    响应/响应报文    18<br>7.2.3    调试工具    20<br>7.2.4    协商缓存（性能优化）    20<br>第8章 AJAX编程    23<br>8.1    异步    23<br>8.2    XMLHttpRequest    24<br>8.2.1    请求    24<br>8.2.2    响应    25<br>8.2.3    API详解    26<br>8.3    XML    27<br>8.3.1    语法规则    28<br>8.3.2    XML示例    28<br>8.4    JSON    28<br>8.4.1    语法规则    28<br>8.4.2    JSON解析    29<br>8.5    兼容性    29<br>8.6    封装AJAX工具函数    30<br>8.7    jQuery中的Ajax    30<br>8.8    案例练习    31<br>第9章 模板引擎    31<br>9.1    原理剖析    31<br>9.2    流行模板引擎    31<br>9.3    artTemplate    32<br>9.4    案例练习    32<br>第10章 同源&amp;跨域    32<br>10.1    同源    32<br>10.2    跨域    32<br>10.3    跨域方案    33<br>10.4    JSONP    33<br>10.5    jQuery中的JSONP    34<br>第11章 综合练习    34<br>11.1    瀑布流布局    34<br>11.2    省/市/区县三级联动    34</li>
+</ol>
+<p>第1章服务器<br>通俗的讲，能够提供某种服务的机器（计算机）称为服务器。<br>1.服务器类型<br>按照不同的划分标准，服务可划分为以下类型：<br>1、按服务类型可分为：文件服务器、数据库服务器、邮件服务器、Web 服务器等；<br>2、按操作系统可分为：Linux服务器、Windows服务器等；<br>3、按应用软件可分为 Apache服务器、Nginx 服务器、IIS服务器、Tomcat服务器、Node服务器等。<br>2.服务器软件<br>使计算机具备提供某种服务能力的应用软件，称为服务器软件，通过安装相应的服务软件，然后进行配置后就可以使计算具备了提供某种服务的能力。<br>常见的服务器软件有：<br>1、文件服务器：Server-U、FileZilla、VsFTP等；<br>2、数据库服务器：Oracle、MySQL、PostgreSQL、MSSQL等；<br>3、邮件服务器：Postfix、Sendmail等；<br>4、HTTP 服务器：Apache、Nginx、IIS、Tomcat、NodeJS等；<br>3.HTTP服务器<br>即网站服务器，主要提供文档(文本、图片、视频、音频)浏览服务，一般安装Apache、Nginx服务器软件。<br>HTTP服务器可以结合某一编程语言处理业务逻辑，由此进行的开发，通常称之为服务端开发。<br>常见的运行在服务端的编程语言包括 PHP、Jsp、Asp、Python、Ruby、Perl等。<br>第2章客户端<br>具有向服务器索取服务能力的终端，如比如 手机、电脑等，通过安装不同的客户端软件，可以获取不同的服务，比如通过QQ获得即时通讯服务、通过迅雷获得下载服务等。<br>常见的客户端软件：浏览器、QQ、迅雷、Foxmail等。<br>以浏览器为宿主环境，结合 HTML、CSS、Javascript等技术，而进行的一系列开发，通常称之为前端开发。<br>第3章网络基础<br>1.1IP地址<br>所谓IP地址就是给每个连接在互联网上的主机分配的一个32位地址。(就像每部手机能正常通话需要一个号码一样)<br>查看本机IP地址 ping、ipconfig、ifconfig<br>1.2域名<br>由于IP地址基于数字，不方便记忆，于是便用域名来代替IP地址，域名是一个IP地址的“面具”<br>查看域名对应的IP地址 ping、tracert<br>1.3DNS服务<br>DNS记录了 IP 地址和域名的映射（对应）关系；<br>查找优先级 本机hosts文件、DNS服务器<br>1.4端口<br>端口号是计算机与外界通讯交流的出口，每个端口对应不同的服务。<br>现实生活中，银行不同的窗口办理不同的业务。<br>查看端口占用情况 netstat -an<br>常见端口号 80、8080、3306、21、22<br>第4章C/S和B/S<br>1.5C/S结构<br>即Client、Server<br>C/S工作流程图</p>
+<p>在C/S结构的情况下，不同的服务需要安装不同的客户端软件，比如QQ、迅雷、Foxmail这种情况下安装的软件会越来越多，进而占用非常多的系统资源，除此之外还有其它弊端，比如A出差，需要在B电脑上查收邮件，但是B电脑并未安装Foxmail等类似的客户端软件，这样不得不先去下载Foxmail，非常不方便，并且客户端软件升级后也需要重新下载。<br>1.6B/S结构<br>B/S（即Broswer、Server）解决了C/S所带来的不便，将所有的服务（如QQ、邮件等）都可以通过浏览器来完成，因为基本所有浏览器都安装了浏览器，这样可以更多的节省系统资源，并且功能升级也无需重新下载，只要刷新网页即可，要但B/S也有一些不利，比如操作稳定性、流畅度等方面相对较弱。<br>第5章PHP基础<br>1.7入门<br>文件以.php后缀结尾，所有程序包含在&lt;?php /<strong> 这里是代码 </strong>/ ?&gt;</p>
+<p>避免使用中文目录和中文文件名<br>1.8变量<br>1、变量以$开头 字母/数字/下划线 不能以数字开头<br>2、大小写敏感（区分大小写）<br>1.9数据类型<br>字符型、整型、浮点型、布尔型、数组、对象、NULL<br>单引号&amp;双引号区别<br>索引数组、关联数组（了解即可）<br>1.10内容输出<br>echo：输出简单数据类型，如字符串、数值<br>print_r()：输出复杂数据类型，如数组<br>var_dump()：输出详细信息，如对象、数组（了解）<br>1.11运算符<br>基本与Javascript语法一致<br>. 号表示字符串拼接符，Javascript中为+号<br>1.12函数<br>与Javascript基本一致<br>函数名对大小写不敏感<br>默认参数（了解即可）<br>1.13分支、循环语句<br>与Javascript基本一致<br>foreach()<br>1.14文件引入<br>include、require<br>1.15表单处理<br>表单name属性的是用来提供给服务端接收所传递数据而设置的<br>表单action属性设置接收数据的处理程序<br>表单method属性设置发送数据的方式<br>当上传文件是需要设置 enctype=”multipart/form-data”，且只能post方式<br>$_GET接收 get 传值<br>$_POST接收 post 传值<br>$_FILES接收文件上传<br>1.16常用PHP函数<br>in_array() 是否在数组中<br>count() 计算数组长度<br>array_key_exists ()检测数组中是否存在key<br>file_get_contents读取文件<br>…还有很多<br>1.17应用实例<br>1、用户登录<br>2、动态网站<br>第6章网络传输协议<br>指服务器和客户端间进行通信时的约束和规范，客户端与服务端的数据交互并不是杂乱无章的，需要遵照（基于）一定的规范进行。<br>1.18常见协议<br>1、HTTP、HTTPS 超文本传输协议<br>2、FTP 文件传输协议<br>3、SMTP 简单邮件传输协议<br>1.19HTTP协议<br>即超文本传输协议，网站是基于HTTP协议的，例如网站的图片、CSS、JS等都是基于HTTP协议进行传输的。<br>HTTP协议是由从客户机到服务器的请求(Request)和从服务器到客户机的响应(Response)进行了约束和规范。<br>即HTTP协议主要由请求和响应构成。</p>
+<p>常用请求方法 POST、GET、PUT、DELETE<br>1.19.1请求/请求报文<br>请求由客户端发起，其规范格式为：请求行、请求头、请求主体。</p>
+<p>1、请求行</p>
+<p>由请求方式、请求URL和协议版本构成<br>2、请求头<br>Host：localhost请求的主机<br>Cache-Control：max-age=0控制缓存<br>Accept：<em>/</em> 接受的文档MIME类型<br>User-Agent：很重要<br>Referer：从哪个URL跳转过来的<br>Accept-Encoding：可接受的压缩格式<br>3、请求主体<br>即传递给服务端的数据<br>注：当以post形式提交表单的时候，请求头里会设置<br>Content-Type: application/x-www-form-urlencoded，以get形式当不需要<br>1.19.2响应/响应报文<br>响应由服务器发出，其规范格式为：状态行、响应头、响应主体。</p>
+<p>1、状态行</p>
+<p>由协议版本号、状态码和状态信息构成<br>2、响应头<br>Date：响应时间<br>Server：服务器信息<br>Content-Length：响应主体长度<br>Content-Type：响应资源的MIME类型<br>MIME是标识文件类型的，文件后缀并不能正确无误的标识文件的类型。<br>客户端与服务器在进行数据传输的时候都是以字节形式进行的，咱们可以理解成是以“文本形式”传输，这时浏览器就需要明确知道该怎么样来解析这些文本形式的数据，MIME就是明确告知浏览器该如何来处理。<br>3、响应主体<br>即服务端返回给客户端的内容；<br>状态码</p>
+<p>常见的有200代表成功、304文档未修改、403没有权限、404未找到、500服务器错误<br>1.19.3调试工具<br>利用HTTP抓包工具在开发中可以帮我们进行调试，常用抓包工具HttpWatch、Fiddler、Charles、FireBug等<br>浏览器插件<br>Firebug、HttpWatch、chrome dev tools<br>代理软件<br>Charles、Fiddler<br>第7章AJAX编程<br>即 Asynchronous Javascript And XML，AJAX 不是一门的新的语言，而是对现有持术的综合利用。<br>本质是在HTTP协议的基础上以异步的方式与服务器进行通信。<br>1.20异步<br>指某段程序执行时不会阻塞其它程序执行，其表现形式为程序的执行顺序不依赖程序本身的书写顺序，相反则为同步。<br>其优势在于不阻塞程序的执行，从而提升整体执行效率。</p>
+<p>现实生活中的一个例子<br>打电话是同步 发消息是异步<br>XMLHttpRequest可以以异步方式的处理程序。<br>1.21XMLHttpRequest<br>浏览器内建对象，用于在后台与服务器通信(交换数据) ，由此我们便可实现对网页的部分更新，而不是刷新整个页面。<br>下面是一个简单的例子</p>
+<p>由于XMLHttpRequest本质基于HTTP协议实现通信，所以结合HTTP协议和上面的例子我们分析得出如下结果：<br>1.21.1请求<br>HTTP请求3个组成部分与XMLHttpRequest方法的对应关系<br>1、请求行</p>
+<p>2、请求头</p>
+<p>get请求可以不设置<br>3、请求主体</p>
+<p>注意书写顺序<br>1.21.2响应<br>HTTP响应是由服务端发出的，作为客户端更应关心的是响应的结果。<br>HTTP响应3个组成部分与XMLHttpRequest方法或属性的对应关系。<br>由于服务器做出响应需要时间（比如网速慢等原因），所以我们需要监听服务器响应的状态，然后才能进行处理。</p>
+<p>onreadystatechange是Javascript的事件的一种，其意义在于监听XMLHttpRequest的状态<br>1、获取状态行（包括状态码&amp;状态信息）</p>
+<p>2、获取响应头</p>
+<p>3、响应主体</p>
+<p>我们需要检测并判断响应头的MIME类型后确定使用request.responseText或者request.responseXML<br>1.21.3API详解<br>xhr.open() 发起请求，可以是get、post方式<br>xhr.setRequestHeader() 设置请求头<br>xhr.send() 发送请求主体get方式使用xhr.send(null)<br>xhr.onreadystatechange = function () {} 监听响应状态<br>xhr.readyState = 0时，UNSENT open尚未调用<br>xhr.readyState = 1时，OPENED open已调用<br>xhr.readyState = 2时，HEADERS_RECEIVED 接收到头信息<br>xhr.readyState = 3时，LOADING 接收到响应主体<br>xhr.readyState = 4时，DONE 响应完成<br>不用记忆状态，只需要了解有状态变化这个概念<br>xhr.status表示响应码，如200<br>xhr.statusText表示响应信息，如OK<br>xhr.getAllResponseHeaders() 获取全部响应头信息<br>xhr.getResponseHeader(‘key’) 获取指定头信息<br>xhr.responseText、xhr.responseXML都表示响应主体<br>注：GET和POST请求方式的差异（面试题）<br>1、GET没有请求主体，使用xhr.send(null)<br>2、GET可以通过在请求URL上添加请求参数<br>3、POST可以通过xhr.send(‘name=itcast&amp;age=10’)<br>4、POST需要设置</p>
+<p>5、GET效率更好（应用多）<br>6、GET大小限制约4K，POST则没有限制<br>问题？如何获取复杂数据呢？<br>1.22XML<br>XML是一种标记语言，很类似HTML，其宗旨是用来传输数据，具有自我描述性（固定的格式的数据）。</p>
+<p>1.22.1语法规则<br>1、必须有一个根元素<br>2、不可有空格、不可以数字或.开头、大小写敏感<br>3、不可交叉嵌套<br>4、属性双引号（浏览器自动修正成双引号了）<br>5、特殊符号要使用实体<br>6、注释和HTML一样<br>虽然可以描述和传输复杂数据，但是其解析过于复杂并且体积较大，所以实现开发已经很少使用了。<br>1.22.2XML示例<br>详见代码<br>1.23JSON<br>即 JavaScript Object Notation，另一种轻量级的文本数据交换格式，独立于语言。<br>1.23.1语法规则<br>1、数据在名称/值对中<br>2、数据由逗号分隔(最后一个健/值对不能带逗号)<br>3、花括号保存对象方括号保存数组<br>4、使用双引号<br>1.23.2JSON解析<br>JSON数据在不同语言进行传输时，类型为字符串，不同的语言各自也都对应有解析方法，需要解析完成后才能读取<br>1、Javascript 解析方法<br>eavl()、JSON对象  JSON.parse()、JSON.stringify()；<br>JSON兼容处理json2.js<br>2、PHP解析方法<br>json_encode()、json_decode()<br>总结：JSON体积小、解析方便且高效，在实际开发成为首选。<br>1.24兼容性<br>IE5、IE6中使用 ActiveObject(“Microsoft.XMLHTTP”)<br>如下图</p>
+<p>关于IE的兼容方面，了解即可。<br>1.25封装AJAX工具函数<br>为了提升我们的开发效率，我们自已将XMLHttpRequest封装成一个函数。<br>1.26jQuery中的Ajax<br>jQuery为我们提供了更强大的Ajax封装<br>$.ajax({}) 可配置方式发起Ajax请求<br>$.get() 以GET方式发起Ajax请求<br>$.post() 以POST方式发起Ajax请求<br>$(‘form’).serialize() 序列化表单（即格式化key=val&amp;key=val）<br>url 接口地址<br>type 请求方式<br>timeout 请求超时<br>dataType 服务器返回格式<br>data 发送请求数据<br>beforeSend: function () {} 请求发起前调用<br>success 成功响应后调用<br>error 错误响应时调用<br>complete 响应完成时调用（包括成功和失败）<br>jQuery Ajax介绍<br><a href="http://www.w3school.com.cn/jquery/jquery_ref_ajax.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/jquery/jquery_ref_ajax.asp</a><br>1.27案例练习<br>1、Loading状态<br>2、禁止重复提交<br>3、表单处理<br>4、数据验证<br>第8章模板引擎<br>1.28原理剖析<br>其本质是利用正则表达式，替换模板当中预先定义好的标签。<br>正则表达式exec用法<br><a href="http://www.w3school.com.cn/jsref/jsref_exec_regexp.asp" target="_blank" rel="noopener">http://www.w3school.com.cn/jsref/jsref_exec_regexp.asp</a><br>1.29流行模板引擎<br>BaiduTemplate：<a href="http://tangram.baidu.com/BaiduTemplate/" target="_blank" rel="noopener">http://tangram.baidu.com/BaiduTemplate/</a><br>ArtTemplate：<a href="https://github.com/aui/artTemplate" target="_blank" rel="noopener">https://github.com/aui/artTemplate</a><br>velocity.js：<a href="https://github.com/shepherdwind/velocity.js/" target="_blank" rel="noopener">https://github.com/shepherdwind/velocity.js/</a><br>Handlebars：<a href="http://handlebarsjs.com/" target="_blank" rel="noopener">http://handlebarsjs.com/</a><br>参考资料:<br><a href="http://blog.jobbole.com/56689/" target="_blank" rel="noopener">http://blog.jobbole.com/56689/</a><br>1.30artTemplate<br>1、引入template-native.js<br>2、&lt;% 与  %&gt; 符号包裹起来的语句则为模板的逻辑表达式<br>3、&lt;%= content %&gt;为输出表达式<br>1.31案例练习<br>1、Ajax分页（瀑布流加载）<br>第9章同源&amp;跨域<br>1.32同源<br>同源策略是浏览器的一种安全策略，所谓同源是指，域名，协议，端口完全相同。<br>1.33跨域<br>不同源则跨域<br>例如<a href="http://www.example.com/" target="_blank" rel="noopener">http://www.example.com/</a><br><a href="http://api.example.com/detail.html" target="_blank" rel="noopener">http://api.example.com/detail.html</a>    不同源    域名不同<br>https//<a href="http://www.example.com/detail.html" target="_blank" rel="noopener">www.example.com/detail.html</a>    不同源    协议不同<br><a href="http://www.example.com:8080/detail.html" target="_blank" rel="noopener">http://www.example.com:8080/detail.html</a>    不同源    端口不同<br><a href="http://api.example.com:8080/detail.html" target="_blank" rel="noopener">http://api.example.com:8080/detail.html</a>    不同源    域名、端口不同<br><a href="https://api.example.com/detail.html" target="_blank" rel="noopener">https://api.example.com/detail.html</a>    不同源    协议、域名不同<br><a href="https://www.example.com:8080/detail.html" target="_blank" rel="noopener">https://www.example.com:8080/detail.html</a>    不同源    端口、协议不同<br><a href="http://www.example.com/detail/index.html" target="_blank" rel="noopener">http://www.example.com/detail/index.html</a>    同源    只是目录不同<br>1.34跨域方案<br>1、顶级域名相同的可以通过domain.name来解决，即同时设置 domain.name = 顶级域名（如example.com）<br>2、document.domain + iframe<br>3、window.name + iframe<br>4、location.hash + iframe<br>5、window.postMessage()<br>参考资料<br><a href="http://rickgray.me/2015/09/03/solutions-to-cross-domain-in-browser.html" target="_blank" rel="noopener">http://rickgray.me/2015/09/03/solutions-to-cross-domain-in-browser.html</a><br>1.35JSONP<br>JSON with Padding<br>1、原理剖析<br>其本质是利用了<script src></script>标签具有可跨域的特性，由服务端返回一个预先定义好的Javascript函数的调用，并且将服务器数据以该函数参数的形式传递过来，此方法需要前后端配合完成。<br>a)文件后缀并不能代表什么，关建我们要看服务器返回的内容，比如css.php<br>这时返回的内容为 echo ‘body {background:color}’我们可以通过content-type:text/css来指定浏览器该如何解析，返回的内容<br>见代码示例10-5.html和 css.php</p>
+<p>b) 同样我们也可以js文件以.php结尾，比如js.php 这时我们可以指定Content-Type: text/javascript可告知浏览器要以javascript来执行我们返回的内容，如果返回的是一个javascript的一个函数调用，那么在这个函数调用过程中可以将跨域请求来的数据以“实参”的传递过来，并且这个实参一般是JSON格式的<br>见代码示例js.php（api目录下的js.php）</p>
+<p>只能以GET方式请求<br>1.36jQuery中的JSONP<br>jQuery 的$.ajax() 方法当中集成了JSONP的实现，可以非常方便的实现跨域数据的访问。<br>实现机制，以下是伪代码，见代码示例10-7.html</p>
+<p>dataType: ‘jsonp’ 设置dataType值为jsonp即开启跨域访问<br>jsonp 可以指定服务端接收的参数的“key”值，默认为callback<br>jsonpCallback 可以指定相应的回调函数，默认自动生成<br>案例练习<br>1、天气预报<br>第10章XMLHttpRequest 2.0<br>技术总是在实践中不断更新的，XMLHttpRequest也不例外。<br>1.37设置超时<br>a) 设置超时 xhr.timeout<br>b) 监听超时事件 xhr.ontimeout = function () {// code}<br>当请求超时，此事件就会被触发<br>见代码示例11-1.html</p>
+<p>1.38FormData<br>a) 提供了一个新的内建对象，可用于管理表单数据<br>b) 首先要获取一个表单元素form<br>c) 然后在实例化时 new FormData(form)，将表单元素form传进去<br>d) 会返回一个对象，此对象可以直接做为xhr.send(formData)的参数<br>e) 此时我们的数据就是以二进制形式传递了<br>f) 注意我们这里只能以post形式传递，浏览器会自动为我们设置一个合适的请求头<br>见代码示例11-2.html</p>
+<p>1.39二进制<br>a) 我们上传文件是以二进制形式传递的<br>b) 我们可以通过表单<input type="”file”">获取到一个文件对象<br>c) 然后file.files[0]可以获取文件信息<br>d) 然后再利用var formData = new FormData() 实例化<br>e) 然后再利用formData.append(‘upload’, file.files[0])将文件转成二进制<br>f) 最后将 formData 做为xhr.send(formData)的参数<br>见代码示例11-3.html 和 11-4.php</p>
+<p>1.40上传进度<br>a) 利用XMLHttpRequest我们可以实现文件的上传<br>b) 并且我们可以通过xhr.upload.onprogress = function (ev) {// code}，监听上传的进度<br>c) 这时我们上传的进度信息会保存在事件对象ev里<br>d) ev.loaded 表示已上传的大小，ev.total表示文件整体的大小<br>e) var percent = ev.loaded / ev.total</p>
+<p>第11章综合练习<br>1.41瀑布流布局<br></p></pre>&gt;<p></p>
+
+    </div>
+</div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2016/08/05/gulp的简单使用/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                gulp的简单使用
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2016/02/17/vue/">
+                vue
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
+
+
+
+        </div>
+        <div class="cube-right">
+            
+
+<div class="cube-search cube-sidebar" id="cube-search">
+    <div class="search-container">
+        <input type="text" placeholder="Search" class="cube-search-input" id="cube-search-input">
+        <i class="cube-icon cube-icon-search cube-search-submit" aria-hidden="true"></i>
+    </div>
+    <!-- TODO 通过给window赋一个全局变量，通过脚本赋值 -->
+</div>
+<script>
+    (function (window) {
+        'use strict';
+        window.searchModule = {}
+        window.searchModule.JSONUrl = '/content.json'
+        window.searchModule.rootUrl = '/'
+    })(window)
+</script>
+<div class="cube-search-form">
+    <div class="cube-search-control">
+        <input type="text" placeholder="Search" class="search-input">
+        <a class="close-button">
+            <i class="cube-icon cube-close" aria-hidden="true"></i>
+        </a>
+    </div>
+    <div class="cube-search-result"></div>
+</div>
+
+
+<div class="cube-author cube-sidebar" id="cube-author">
+    
+    
+    <span>有幸遇见</span>
+    
+    
+    <a title="再牛逼的梦想也抵不住傻逼似得坚持">再牛逼的梦想也抵不住傻逼似得坚持</a>
+    
+    <div class="count">
+        <a class="count articles"><span>8</span>Article</a>
+        <a class="count tags"><span>0</span>Tags</a>
+        <a class="count categories"><span>0</span>Categories</a>
+    </div>
+</div>
+
+
+
+<div class="cube-music cube-sidebar" id="cube-music">
+    <div class="cube-player aplayer" id="cube-player"></div>
+</div>
+<script>
+    (function (window) {
+        window.musicModule = {}
+        window.musicModule.musicConfig = '{"narrow":false,"autoplay":false,"showlrc":3,"theme":"#b7daff","mutex":true,"mode":"circulation","preload":"auto","listmaxheight":"513px","music":[{"title":"Dear friends","author":"TRIPLANE","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/TRIPLANE - Dear friends.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Dear friends - TRIPLANE.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/TRIPLANE - Dear friends.jpg"},{"title":"Butter-Fly","author":"和田光司","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/和田光司 - Butter-Fly (ピアノヴァージョン).mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/Butter-Fly (ピアノヴァージョン) - 和田光司.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/和田光司 - Butter-Fly (ピアノヴァージョン).jpg"},{"title":"宵闇花火","author":"葉月ゆら","url":"http://cube-1252774894.cosgz.myqcloud.com/music/source/葉月ゆら - 宵闇花火.mp3","lrc":"http://cube-1252774894.cosgz.myqcloud.com/music/lrc/宵闇花火 - 葉月ゆら.lrc","pic":"http://cube-1252774894.cosgz.myqcloud.com/music/image/葉月ゆら - 宵闇花火.jpg"}]}'
+        window.musicModule.lrcConfig = {
+            open: 'Open Lyrics',
+            close: 'Close Lyrics'
+        }
+    })(window)
+</script>
+
+
+
+<div class="cube-recent-posts cube-sidebar" id="cube-recent-posts">
+    <div class="title">
+        <a>Recent Posts</a>
+    </div>
+    <ul class="list">
+        
+        
+        <li>
+            <!-- TODO 如果文章要显示图片，那么在front-matter上添加preview属性(url or path) -->
+            
+            <div class="normal">
+                <p class="index first">
+                    <span>1</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/03/05/generator函数/" title="generator函数">generator函数</a>
+                </p>
+            </div>
+            
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>2</span>
+                </p>
+                <p class="title">
+                    <a href="/2018/02/17/react/" title="react的学习">react的学习</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>3</span>
+                </p>
+                <p class="title">
+                    <a href="/2017/02/05/bower的使用/" title="bower的使用">bower的使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>4</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/08/05/gulp的简单使用/" title="gulp的简单使用">gulp的简单使用</a>
+                </p>
+            </div>
+        </li>
+        
+        
+        
+        <li>
+            <div class="normal">
+                <p class="index">
+                    <span>5</span>
+                </p>
+                <p class="title">
+                    <a href="/2016/02/17/http服务&amp;ajax编程/" title="http&amp;ajax">http&amp;ajax</a>
+                </p>
+            </div>
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+
+
+
+
+
+<div class="cube-links cube-sidebar" id="cube-links">
+    <div class="title">
+        <a>Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            
+            
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/links/GitHub.png">
+            
+            <a href="https://github.com/text-shadowForlove" target="_blank">GitHub</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+<div class="cube-friend-links cube-sidebar" id="cube-friend-links">
+    <div class="title">
+        <a>Friend Links</a>
+    </div>
+    <ul class="list">
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/micblo.png">
+            <a href="https://blog.micblo.com/" target="_blank">罗大佬</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="http://cube-1252774894.cosgz.myqcloud.com/friend_links/DIYgod.jpg">
+            <a href="https://www.anotherhome.net/" target="_blank">DIYgod</a>
+        </li>
+        
+        <li>
+            <!-- TODO change avatar.png to friend.png-->
+            <img src="/images/friend_links.jpg ">
+            <a href="https://aonosora.com/" target="_blank">咪西西の部落格</a>
+        </li>
+        
+    </ul>
+</div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="cube-footer">
+    
+© 2017 有幸遇见
+
+<br>
+Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>.&nbsp;Theme by <a href="https://github.com/ZEROKISEKI" target="_blank">AONOSORA</a>
+</footer>
+<!-- inject:script -->
+<script src="/js/script.js"></script>
+<!-- endinject -->
+<div class="cube-loading out"></div>
+</body>
+</html>
