@@ -12,7 +12,7 @@
     
     
     
-    <title>about-me | Hexo</title>
+    <title>defineProperty | Hexo</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -163,21 +163,58 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">about-me</h1>
+    <h1 class="title">defineProperty</h1>
     
     <div class="cube-article-header">
-        <div class="cube-article-date page">
+        <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2019-03-05
+            2019-04-02
         </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+</div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <h1 id="懒-懒-懒-啥也不想写-๑乛◡乛๑"><a href="#懒-懒-懒-啥也不想写-๑乛◡乛๑" class="headerlink" title="懒!懒!懒!  啥也不想写  ๑乛◡乛๑"></a>懒!懒!懒!  啥也不想写  ๑乛◡乛๑</h1>
+        <h2 id="Object-defineProperty"><a href="#Object-defineProperty" class="headerlink" title="Object.defineProperty()"></a>Object.defineProperty()</h2><ul>
+<li>Object.defineProperty() 方法会直接在一个对象上定义一个新属性，或者修改一个对象的现有属性， 并返回这个对象。</li>
+<li>语法 Object.defineProperty(obj, prop, descriptor)</li>
+<li>如果一个描述符不具有value,writable,get 和 set 任意一个关键字，那么它将被认为是一个数据描述符。如果一个描述符同时有(value或writable)和(get或set)关键字，将会产生一个异常。</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> obj1 = &#123;&#125;;</span><br><span class="line">  <span class="built_in">Object</span>.defineProperty(obj1,<span class="string">'key'</span>,&#123;</span><br><span class="line">      <span class="comment">//enumerable:true时是可枚举的,为false是不可枚举的</span></span><br><span class="line">      enumerable:<span class="literal">false</span>,</span><br><span class="line">      <span class="comment">//configurable为 true 时，该属性描述符才能够被改变，同时该属性也能从对应的对象上被删除</span></span><br><span class="line">      configurable:<span class="literal">false</span>,</span><br><span class="line">      <span class="comment">//writable为true时，value才能被赋值运算符改变。默认为 false。</span></span><br><span class="line">      writable:<span class="literal">false</span>,</span><br><span class="line">      value:<span class="string">"static"</span>,</span><br><span class="line">  &#125;)</span><br><span class="line">  <span class="built_in">console</span>.log(obj1);<span class="comment">//&#123;key:"static"&#125;</span></span><br><span class="line">  obj1.key = <span class="string">"private"</span>;</span><br><span class="line">  <span class="built_in">console</span>.log(obj1);<span class="comment">//&#123;key:"static"&#125;,writable为true时,&#123;key:"private"&#125;</span></span><br><span class="line">  <span class="keyword">delete</span> obj1[<span class="string">"key"</span>];</span><br><span class="line">  <span class="built_in">console</span>.log(obj1);<span class="comment">//&#123;&#125;, configurable:false时删除不了key</span></span><br><span class="line"></span><br><span class="line">  <span class="keyword">for</span> (<span class="keyword">const</span> key <span class="keyword">in</span> obj1) &#123;</span><br><span class="line">      <span class="keyword">if</span> (obj1.hasOwnProperty(key)) &#123;</span><br><span class="line">          <span class="comment">//enumerable:true时是可枚举的,为false是不可枚举的</span></span><br><span class="line">          <span class="built_in">console</span>.log(obj1[key]);</span><br><span class="line">      &#125;</span><br><span class="line">  &#125;  </span><br><span class="line">  <span class="comment">//enumerable:true时输出:</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">Object</span>.keys(obj1));<span class="comment">//["key"],为false是[]</span></span><br><span class="line">  <span class="built_in">console</span>.log(<span class="built_in">JSON</span>.stringify(obj1));<span class="comment">//&#123;"key":"static"&#125;,为false是&#123;&#125;</span></span><br><span class="line">  <span class="built_in">console</span>.log(obj1.propertyIsEnumerable(<span class="string">"key"</span>));<span class="comment">//此方法可以判断属性是否可枚举</span></span><br></pre></td></tr></table></figure>
+<h2 id="对象是否可枚举会影响for…in-Object-keys-JSON-stringify的结果"><a href="#对象是否可枚举会影响for…in-Object-keys-JSON-stringify的结果" class="headerlink" title="对象是否可枚举会影响for…in,Object.keys(),JSON.stringify的结果."></a>对象是否可枚举会影响for…in,Object.keys(),JSON.stringify的结果.</h2><ul>
+<li>Object.propertyIsEnumerable(“key”) 判断对象是否可枚举</li>
+</ul>
+
     </div>
 </div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2019/04/02/Object-create-1/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                Object.create
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2019/03/12/前端性能优化/">
+                前端性能优化及其搜索引擎优化
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
 
 
 

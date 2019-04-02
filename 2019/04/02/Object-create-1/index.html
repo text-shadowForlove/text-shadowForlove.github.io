@@ -12,7 +12,7 @@
     
     
     
-    <title>about-me | Hexo</title>
+    <title>Object.create | Hexo</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -163,21 +163,61 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">about-me</h1>
+    <h1 class="title">Object.create</h1>
     
     <div class="cube-article-header">
-        <div class="cube-article-date page">
+        <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2019-03-05
+            2019-04-02
         </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+</div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <h1 id="懒-懒-懒-啥也不想写-๑乛◡乛๑"><a href="#懒-懒-懒-啥也不想写-๑乛◡乛๑" class="headerlink" title="懒!懒!懒!  啥也不想写  ๑乛◡乛๑"></a>懒!懒!懒!  啥也不想写  ๑乛◡乛๑</h1>
+        <h1 id="Object-create"><a href="#Object-create" class="headerlink" title="Object.create"></a>Object.create</h1><ul>
+<li><p>Object.create(null) 创建的对象是一个空对象，在该对象上没有继承 Object.prototype 原型链上的属性或者方法,例如：toString(), hasOwnProperty()等方法</p>
+</li>
+<li><p>Object.create()方法接受两个参数:Object.create(obj,propertiesObject) ;</p>
+</li>
+<li><p>obj:一个对象，应该是新创建的对象的原型。</p>
+</li>
+</ul>
+<h2 id="使用Object-create-是将对象继承到proto属性上"><a href="#使用Object-create-是将对象继承到proto属性上" class="headerlink" title="使用Object.create()是将对象继承到proto属性上"></a>使用Object.create()是将对象继承到<strong>proto</strong>属性上</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> test = <span class="built_in">Object</span>.create(&#123;<span class="attr">x</span>:<span class="number">123</span>,<span class="attr">y</span>:<span class="number">345</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(test);<span class="comment">//&#123;&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(test.x);<span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(test.__proto__.x);<span class="comment">//3</span></span><br><span class="line"><span class="built_in">console</span>.log(test.__proto__.x === test.x);<span class="comment">//true</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test1 = <span class="keyword">new</span> <span class="built_in">Object</span>(&#123;<span class="attr">x</span>:<span class="number">123</span>,<span class="attr">y</span>:<span class="number">345</span>&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(test1);<span class="comment">//&#123;x:123,y:345&#125;</span></span><br><span class="line"><span class="built_in">console</span>.log(test1.x);<span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(test1.__proto__.x);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(test1.__proto__.x === test1.x);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test2 = &#123;<span class="attr">x</span>:<span class="number">123</span>,<span class="attr">y</span>:<span class="number">345</span>&#125;;</span><br><span class="line"><span class="built_in">console</span>.log(test2);<span class="comment">//&#123;x:123,y:345&#125;;</span></span><br><span class="line"><span class="built_in">console</span>.log(test2.x);<span class="comment">//123</span></span><br><span class="line"><span class="built_in">console</span>.log(test2.__proto__.x);<span class="comment">//undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(test2.__proto__.x === test2.x);<span class="comment">//false</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> test3 = &#123;<span class="attr">a</span>:<span class="number">1</span>&#125;;</span><br><span class="line"><span class="keyword">var</span> test4 = <span class="built_in">Object</span>.create(test3,&#123;<span class="attr">b</span>:&#123;</span><br><span class="line">    writable:<span class="literal">true</span>,</span><br><span class="line">    configurable:<span class="literal">true</span>,</span><br><span class="line">    value: <span class="number">2</span> </span><br><span class="line">&#125;&#125;);</span><br><span class="line"><span class="built_in">console</span>.log(test4); <span class="comment">//test3在test4的原型上,b在test4的属性上</span></span><br><span class="line">test3.a = <span class="number">3</span>;</span><br><span class="line"><span class="built_in">console</span>.log(test4); <span class="comment">//test4原型上a的值也被改变了 a = 3</span></span><br></pre></td></tr></table></figure>
+<ul>
+<li>isPrototypeOf() 方法测试一个对象是否存在于另一个对象的原型链上。</li>
+</ul>
+
     </div>
 </div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2019/04/02/vue-node/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                vue-node
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2019/04/02/defineProperty/">
+                defineProperty
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
 
 
 
