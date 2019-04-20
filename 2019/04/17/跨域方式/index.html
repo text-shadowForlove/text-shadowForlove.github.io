@@ -12,7 +12,7 @@
     
     
     
-    <title>about-me | Hexo</title>
+    <title>跨域方式 | Hexo</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -163,21 +163,71 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">about-me</h1>
+    <h1 class="title">跨域方式</h1>
     
     <div class="cube-article-header">
-        <div class="cube-article-date page">
+        <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2019-03-05
+            2019-04-17
         </div>
+        <div class="cube-article-tags">
+    <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
+    
+</div>
     </div>
     
     <div class="cube-article-content cube-markdown">
         
-        <h1 id="懒-懒-懒-啥也不想写-๑乛◡乛๑"><a href="#懒-懒-懒-啥也不想写-๑乛◡乛๑" class="headerlink" title="懒!懒!懒!  啥也不想写  ๑乛◡乛๑"></a>懒!懒!懒!  啥也不想写  ๑乛◡乛๑</h1>
+        <h2 id="跨域"><a href="#跨域" class="headerlink" title="跨域:"></a>跨域:</h2><ul>
+<li>浏览器对于javascript的同源策略的限制,例如a.cn下面的js不能调用b.cn中的js,对象或数据(因为a.cn和b.cn是不同域),所以跨域就出现了.\</li>
+<li>有一点必须要注意：跨域并不是请求发不出去，请求能发出去，服务端能收到请求并正常返回结果，只是结果被浏览器拦截了</li>
+</ul>
+<h2 id="jsonp的产生"><a href="#jsonp的产生" class="headerlink" title="jsonp的产生:"></a>jsonp的产生:</h2><p>1 .AJAX直接请求普通文件存在跨域无权限访问的问题,不管是静态页面也好.</p>
+<p>2 .不过我们在调用js文件的时候又不受跨域影响,比如引入jquery框架的,或者是调用相片的时候</p>
+<p>3 .凡是拥有scr这个属性的标签都可以跨域例如<script><img><iframe></p>
+<p>4 .如果想通过纯web端跨域访问数据只有一种可能,那就是把远程服务器上的数据装进js格式的文件里.</p>
+<p>5 .而json又是一个轻量级的数据格式,还被js原生支持</p>
+<p>6 .为了便于客户端使用数据，逐渐形成了一种非正式传输协议，人们把它称作JSONP，该协议的一个要点就是允许用户传递一个callback 参数给服务端</p>
+<h2 id="iframe来跨域"><a href="#iframe来跨域" class="headerlink" title="iframe来跨域"></a>iframe来跨域</h2><ul>
+<li>基于iframe实现的跨域要求两个域具有aa.xx.com,bb.xx.com 这种特点，</li>
+</ul>
+<p>也就是两个页面必须属于一个基础域（例如都是xxx.com)，使用同一协议和同一端口，这样在两个页面中同时添加document.domain，就可以实现父页面调用子页面的函数</p>
+<ul>
+<li>要点就是 :通过修改document.domain来跨子域</li>
+</ul>
+<h2 id="处理跨域方法二——CORS-服务器允许跨域"><a href="#处理跨域方法二——CORS-服务器允许跨域" class="headerlink" title="处理跨域方法二——CORS(服务器允许跨域)"></a>处理跨域方法二——CORS(服务器允许跨域)</h2><p> 服务器代码: header(“Access-Control-Allow-Origin:*”）； header(“Access-Control-Allow-Methods:POST,GET”）；</p>
+<h2 id="处理跨域方法三——WebSocket"><a href="#处理跨域方法三——WebSocket" class="headerlink" title="处理跨域方法三——WebSocket"></a>处理跨域方法三——WebSocket</h2><ul>
+<li>Websocket是HTML5的一个持久化的协议，它实现了浏览器与服务器的全双工通信，同时也是跨域的一种解决方案。WebSocket 在建立连接时需要借助 HTTP 协议，连接建立好了之后 client 与 server 之间的双向通信就与 HTTP 无关了.原生WebSocket API使用起来不太方便，我们使用Socket.io</li>
+</ul>
+<h2 id="处理跨域方法四——postMessage"><a href="#处理跨域方法四——postMessage" class="headerlink" title="处理跨域方法四——postMessage"></a>处理跨域方法四——postMessage</h2><p>如果两个网页不同源，就无法拿到对方的DOM。典型的例子是iframe窗口和window.open方法打开的窗口，它们与父窗口无法通信。HTML5为了解决这个问题，引入了一个全新的API：跨文档通信 API（Cross-document messaging）。这个API为window对象新增了一个window.postMessage方法，允许跨窗口通信，不论这两个窗口是否同源。postMessage方法的第一个参数是具体的信息内容，第二个参数是接收消息的窗口的源（origin），即”协议 + 域名 + 端口”。也可以设为*，表示不限制域名，向所有窗口发送</p>
+</script></p>
     </div>
 </div>
+
+<div class="cube-article-nav">
+    <ul>
+        
+        <li class="prev">
+            <a href="/2019/04/17/vue项目打包优化/">
+                <i class="cube-icon cube-prev" aria-hidden="true"></i>
+                vue项目打包优化
+            </a>
+        </li>
+        
+        
+        <li class="next">
+            <a href="/2019/04/07/axios/">
+                axios
+                <i class="cube-icon cube-next" aria-hidden="true"></i>
+            </a>
+        </li>
+        
+    </ul>
+</div>
+
+
+<!-- TODO 根据theme.comment的内容进行入口选择 -->
 
 
 
