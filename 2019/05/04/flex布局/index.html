@@ -12,7 +12,7 @@
     
     
     
-    <title>WebSocket | Hexo</title>
+    <title>flex布局 | Hexo</title>
     <!-- inject:style -->
     <link href="/css/style.css" rel="stylesheet" type="text/css">
     <!-- endinject -->
@@ -163,13 +163,13 @@
     <div class="cube-content">
         <div class="cube-left">
             <div class="cube-article">
-    <h1 class="title">WebSocket</h1>
+    <h1 class="title">flex布局</h1>
     
     <div class="cube-article-header">
         <div class="cube-article-date">
             <i class="cube-icon cube-icon-date" aria-hidden="true"></i>
             <!-- moment.js对象 -->
-            2019-04-19
+            2019-05-04
         </div>
         <div class="cube-article-tags">
     <i class="cube-icon cube-icon-tag" aria-hidden="true"></i>
@@ -179,31 +179,26 @@
     
     <div class="cube-article-content cube-markdown">
         
-        <h2 id="WebSocket-是-HTML5-开始提供的一种在单个-TCP-连接上进行全双工通讯的协议。"><a href="#WebSocket-是-HTML5-开始提供的一种在单个-TCP-连接上进行全双工通讯的协议。" class="headerlink" title="WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。"></a>WebSocket 是 HTML5 开始提供的一种在单个 TCP 连接上进行全双工通讯的协议。</h2><ul>
-<li><p>WebSocket 使得客户端和服务器之间的数据交换变得更加简单，允许服务端主动向客户端推送数据。在 WebSocket API 中，浏览器和服务器只需要完成一次握手，两者之间就直接可以创建持久性的连接，并进行双向数据传输。</p>
+        <h1 id="flex布局（弹性盒子布局）-flex的六个属性"><a href="#flex布局（弹性盒子布局）-flex的六个属性" class="headerlink" title="flex布局（弹性盒子布局）,flex的六个属性:"></a>flex布局（弹性盒子布局）,flex的六个属性:</h1><ul>
+<li><p>flex-direction 设置盒子的主轴 row(默认) row-reverse:水平方向,起点在右端 column:主轴垂直方向 column-reverse:主轴为垂直方向,起点为下端</p>
 </li>
-<li><p>当你获取 Web Socket 连接后，你可以通过 send() 方法来向服务器发送数据，并通过 onmessage 事件来接收服务器返回的数据。</p>
-<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> Socket = <span class="keyword">new</span> WebSocket(url, [protocol] );</span><br></pre></td></tr></table></figure>
+<li><p>flex-wrap 排不下的时候是否换行  nowrap(默认):不换行 wrap:换行 wrap-reverse:第一行在上面</p>
+</li>
+<li><p>flex-flow属性是flex-direction flex-wrap 的简写</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">flex-flow</span>: (flex-direction) (flex-wrap)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>justify-content 设置主轴上的对齐方式:<br> flex-start（默认值）：左对齐<br> flex-end：右对齐<br> center： 居中<br> space-between：两端对齐，项目之间的间隔都相等。<br> space-around：每个项目两侧的间隔相等。所以，项目之间的间隔比项目与边框的间隔大一倍。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">justify-content</span>: flex-start | flex-end | center | space-between | space-around;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>align-items 定义项目在交叉轴上如何对齐。<br> flex-start：交叉轴的起点对齐。<br> flex-end：交叉轴的终点对齐。<br> center：交叉轴的中点对齐。<br> baseline: 项目的第一行文字的基线对齐。<br> stretch（默认值）：如果项目未设置高度或设为auto，将占满整个容器的高度。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">    <span class="attribute">align-items</span>: flex-start | flex-end | center | baseline | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="WebSocket-属性"><a href="#WebSocket-属性" class="headerlink" title="WebSocket 属性"></a>WebSocket 属性</h2><ul>
-<li>Socket.readyState<br>只读属性 readyState 表示连接状态，可以是以下值：<br>0 - 表示连接尚未建立。</li>
-</ul>
-<p>1 - 表示连接已建立，可以进行通信。</p>
-<p>2 - 表示连接正在进行关闭。</p>
-<p>3 - 表示连接已经关闭或者连接不能打开。</p>
 <ul>
-<li>Socket.bufferedAmount<br>只读属性 bufferedAmount 已被 send() 放入正在队列中等待传输，但是还没有发出的 UTF-8 文本字节数。</li>
+<li>align-content 定义了多根轴线的对齐方式。如果项目只有一根轴线，该属性不起作用。<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.box</span> &#123;</span><br><span class="line">  <span class="attribute">align-content</span>: flex-start | flex-end | center | space-between | space-around | stretch;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
-<h2 id="WebSocket-事件"><a href="#WebSocket-事件" class="headerlink" title="WebSocket 事件"></a>WebSocket 事件</h2><ul>
-<li>open事件: Socket.onopen 连接建立时触发</li>
-<li>message: Socket.onmessage 客户端接收服务端数据时触发</li>
-<li>error: Socket.onerror 通信发生错误时触发</li>
-<li><p>close: Socket.onclose 连接关闭时触发</p>
-<h2 id="WebSocket-方法"><a href="#WebSocket-方法" class="headerlink" title="WebSocket 方法"></a>WebSocket 方法</h2></li>
-<li>Socket.send() 使用连接发送数据</li>
-<li>Socket.close() 关闭连接</li>
-</ul>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">display</span>: flex;</span><br><span class="line">    <span class="attribute">flex-direction</span>: column; </span><br><span class="line">    <span class="attribute">align-items</span>: center;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
     </div>
 </div>
@@ -211,17 +206,10 @@
 <div class="cube-article-nav">
     <ul>
         
-        <li class="prev">
-            <a href="/2019/04/21/nodeJs/">
-                <i class="cube-icon cube-prev" aria-hidden="true"></i>
-                nodeJs
-            </a>
-        </li>
-        
         
         <li class="next">
-            <a href="/2019/04/17/vue项目打包优化/">
-                vue项目打包优化
+            <a href="/2019/04/21/nodeJs/">
+                nodeJs
                 <i class="cube-icon cube-next" aria-hidden="true"></i>
             </a>
         </li>

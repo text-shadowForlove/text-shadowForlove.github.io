@@ -203,7 +203,11 @@
 <li><p>区别:<br><img src="/images/vue和react对比.png" alt="vue和react区别"></p>
 </li>
 </ul>
-
+<h2 id="vue中提供的ajax代理-webpack提供的"><a href="#vue中提供的ajax代理-webpack提供的" class="headerlink" title="vue中提供的ajax代理(webpack提供的)"></a>vue中提供的ajax代理(webpack提供的)</h2><ul>
+<li>在config文件夹下的index.js中配置<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">proxyTable: &#123;</span><br><span class="line">     <span class="string">'/api'</span>:&#123;</span><br><span class="line">       target:<span class="string">'http://localhost:8080'</span>,</span><br><span class="line">       pathRewrite:&#123;</span><br><span class="line">         <span class="string">'^/api'</span>:<span class="string">'static/mock'</span></span><br><span class="line">       &#125;</span><br><span class="line">     &#125;</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="图片懒加载-vue-lazyload-插件"><a href="#图片懒加载-vue-lazyload-插件" class="headerlink" title="图片懒加载 vue-lazyload 插件"></a>图片懒加载 vue-lazyload 插件</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> VueLazyLoad <span class="keyword">from</span> <span class="string">'vue-lazyload'</span></span><br><span class="line"><span class="comment">//配置懒加载loading时用哪个图片</span></span><br><span class="line">Vue.use(VueLazyLoad,&#123;</span><br><span class="line">    loading:<span class="string">"/static/loading-svg/loading-bars.svg"</span></span><br><span class="line">&#125;);</span><br><span class="line"><span class="comment">//用v-lazy代替:scr</span></span><br><span class="line">&lt;img v-lazy=<span class="string">"'/static/img/'+ item.productImg"</span> alt=<span class="string">""</span>&gt;</span><br></pre></td></tr></table></figure>
     </div>
 </div>
 
@@ -272,7 +276,7 @@
     <a title="再牛逼的梦想也抵不住傻逼似得坚持">再牛逼的梦想也抵不住傻逼似得坚持</a>
     
     <div class="count">
-        <a class="count articles"><span>20</span>Article</a>
+        <a class="count articles"><span>22</span>Article</a>
         <a class="count tags"><span>0</span>Tags</a>
         <a class="count categories"><span>0</span>Categories</a>
     </div>
@@ -311,7 +315,7 @@
                     <span>1</span>
                 </p>
                 <p class="title">
-                    <a href="/2019/04/19/WebSocket/" title="WebSocket">WebSocket</a>
+                    <a href="/2019/05/04/flex布局/" title="flex布局">flex布局</a>
                 </p>
             </div>
             
@@ -325,7 +329,7 @@
                     <span>2</span>
                 </p>
                 <p class="title">
-                    <a href="/2019/04/17/vue项目打包优化/" title="vue项目打包优化">vue项目打包优化</a>
+                    <a href="/2019/04/21/nodeJs/" title="nodeJs">nodeJs</a>
                 </p>
             </div>
         </li>
@@ -338,7 +342,7 @@
                     <span>3</span>
                 </p>
                 <p class="title">
-                    <a href="/2019/04/17/跨域方式/" title="跨域方式">跨域方式</a>
+                    <a href="/2019/04/19/WebSocket/" title="WebSocket">WebSocket</a>
                 </p>
             </div>
         </li>
@@ -351,7 +355,7 @@
                     <span>4</span>
                 </p>
                 <p class="title">
-                    <a href="/2019/04/07/axios/" title="axios">axios</a>
+                    <a href="/2019/04/17/vue项目打包优化/" title="vue项目打包优化">vue项目打包优化</a>
                 </p>
             </div>
         </li>
@@ -364,7 +368,7 @@
                     <span>5</span>
                 </p>
                 <p class="title">
-                    <a href="/2019/04/07/Promise/" title="Promise">Promise</a>
+                    <a href="/2019/04/17/跨域方式/" title="跨域方式">跨域方式</a>
                 </p>
             </div>
         </li>
